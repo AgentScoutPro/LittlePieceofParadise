@@ -48,7 +48,7 @@ export const services: ServiceEntry[] = [
     metaDescription:
       "Custom pool design in Arizona — geometric and freeform layouts, integrated spas, and travertine decking built for Arizona living.",
     intro: "Every pool starts as a design conversation, not a catalog page.",
-    heroImage: "https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=2000&q=85",
+    heroImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85",
   },
   {
     slug: "custom-pool-construction",
@@ -111,7 +111,7 @@ export const services: ServiceEntry[] = [
     metaDescription:
       "Premium travertine and paver hardscape installation for Arizona patios, walkways, and pool decks.",
     intro: "The hardscape is the foundation the rest of the design stands on.",
-    heroImage: "https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=2000&q=85",
+    heroImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85",
   },
   {
     slug: "water-features",
