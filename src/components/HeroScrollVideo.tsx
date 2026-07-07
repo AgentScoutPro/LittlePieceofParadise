@@ -1,109 +1,93 @@
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Sprout } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Sprout } from "lucide-react";
+import { hero } from "../content/home";
 
 const VIDEO_SRC = "/videos/hero-blueprint-to-paradise.mp4";
 const POSTER_BLUEPRINT = "/videos/hero-poster-blueprint.jpg";
 const POSTER_FINAL = "/videos/hero-poster-final.jpg";
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(
-    () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
-
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
   useEffect(() => {
-    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = () => setReduced(mql.matches);
-    mql.addEventListener("change", onChange);
-    return () => mql.removeEventListener("change", onChange);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
-
   return reduced;
 }
 
-function HeroCopy({ idPrefix = "hero-title" }: { idPrefix?: string }) {
+/** Static fallback for prefers-reduced-motion: no pinning, no scrubbing. */
+function ReducedMotionHero() {
   return (
-    <>
-      <p className="scene-eyebrow">Custom Pools &amp; Luxury Outdoor Living · Arizona</p>
-      <h1 id={idPrefix}>
-        Create Your Own <em>Little Piece of Paradise</em>
-      </h1>
-      <p className="scene-copy" style={{ marginInline: "auto" }}>
-        Custom pools, luxury landscaping, outdoor living spaces, and backyard transformations designed for Arizona living.
-      </p>
-      <div className="scene-actions">
-        <a className="primary liquid-glass" href="/contact">
-          Request Free Design Consultation <ArrowRight size={18} />
-        </a>
-        <a className="text-link" href="/gallery">View Our Work</a>
-      </div>
-    </>
-  );
-}
-
-/**
- * Reduced-motion fallback: static final-state poster, copy visible
- * immediately, normal (non-inflated) single-viewport section — no scroll
- * runway, no pinning, no video decode/seek cost at all.
- */
-function StaticHero() {
-  return (
-    <section className="scene" id="top" aria-labelledby="hero-title">
-      <img className="scene-media" src={POSTER_FINAL} alt="Finished luxury Arizona backyard with custom pool and patio" />
+    <section className="scene" style={{ minHeight: "100vh" }} aria-labelledby="hero-title">
+      <img className="scene-media" src={POSTER_FINAL} alt="Luxury Arizona backyard with custom pool and outdoor living space" style={{ position: "absolute", inset: 0, objectFit: "cover" }} />
       <div className="scene-scrim scrim-standard" />
       <div className="scene-content centered">
-        <HeroCopy />
-      </div>
-      <div className="location-pill liquid-glass">
-        <Sprout size={26} />
-        <span>Proudly serving</span>
-        <strong>Scottsdale, Gilbert, Chandler &amp; Greater Phoenix</strong>
+        <p className="scene-eyebrow">{hero.eyebrow}</p>
+        <h1 id="hero-title">
+          {hero.headlinePrefix}
+          <em>{hero.headlineEmphasis}</em>
+        </h1>
+        <p className="scene-copy" style={{ marginInline: "auto" }}>{hero.copy}</p>
+        <div className="scene-actions">
+          <a className="primary liquid-glass" href="/contact">
+            {hero.primaryCta} <ArrowRight size={18} />
+          </a>
+          <a className="text-link" href="/gallery">{hero.secondaryCta}</a>
+        </div>
       </div>
     </section>
   );
 }
 
-/**
- * Scroll-scrubbed hero: a 250-300vh (180vh on small viewports) runway with
- * a pinned 100vh (100dvh on small viewports) inner wrapper. The video's
- * currentTime is driven entirely by scroll position across that runway —
- * it never plays on its own. Copy fades in only once the video has mostly
- * resolved from blueprint to finished pool (progress 0.55 -> 0.85).
- */
 function ScrubbedHero() {
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const durationRef = useRef(0);
-  const latestProgress = useRef(0);
-  const rafId = useRef<number | null>(null);
-
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
-  const copyOpacity = useTransform(scrollYProgress, [0.55, 0.85], [0, 1]);
-  const copyPointerEvents = useTransform(copyOpacity, (v) => (v > 0.05 ? "auto" : "none"));
-
-  const applyProgress = () => {
-    rafId.current = null;
-    const video = videoRef.current;
-    if (!video || !durationRef.current) return;
-    video.currentTime = latestProgress.current * durationRef.current;
-  };
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    latestProgress.current = latest;
-    if (rafId.current == null) {
-      rafId.current = requestAnimationFrame(applyProgress);
-    }
-  });
+  const rafRef = useRef<number | null>(null);
+  const [runwayVh, setRunwayVh] = useState(280);
 
   useEffect(() => {
-    return () => {
-      if (rafId.current != null) cancelAnimationFrame(rafId.current);
-    };
+    const setRunway = () => setRunwayVh(window.innerWidth < 640 ? 180 : 280);
+    setRunway();
+    window.addEventListener("resize", setRunway);
+    return () => window.removeEventListener("resize", setRunway);
   }, []);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const onLoaded = () => {
+      durationRef.current = video.duration || 0;
+    };
+    video.addEventListener("loadedmetadata", onLoaded);
+    if (video.readyState >= 1) onLoaded();
+    return () => video.removeEventListener("loadedmetadata", onLoaded);
+  }, []);
+
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end end"] });
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const video = videoRef.current;
+      const duration = durationRef.current;
+      if (!video || !duration) return;
+      const clamped = Math.min(Math.max(progress, 0), 1);
+      video.currentTime = clamped * duration;
+    });
+  });
+
+  const copyOpacity = useTransform(scrollYProgress, [0.55, 0.85], [0, 1]);
+  const copyY = useTransform(scrollYProgress, [0.55, 0.85], [24, 0]);
+
   return (
-    <section className="hero-scroll-video" ref={containerRef}>
-      <div className="hero-scroll-video-inner">
+    <div ref={containerRef} style={{ position: "relative", height: `${runwayVh}vh` }}>
+      <div className="hero-sticky-wrap">
         <video
           ref={videoRef}
           className="scene-media"
@@ -112,33 +96,40 @@ function ScrubbedHero() {
           muted
           playsInline
           preload="auto"
-          controls={false}
-          onLoadedMetadata={(e) => {
-            durationRef.current = e.currentTarget.duration;
-            e.currentTarget.currentTime = latestProgress.current * durationRef.current;
-          }}
+          style={{ position: "absolute", inset: 0, objectFit: "cover" }}
         />
-        <motion.div className="scene-scrim scrim-standard" style={{ opacity: copyOpacity }} />
-        <motion.div
-          className="scene-content centered"
-          style={{ opacity: copyOpacity, pointerEvents: copyPointerEvents }}
-        >
-          <HeroCopy />
+        <div className="scene-scrim scrim-standard" />
+        <motion.div className="scene-content centered" style={{ opacity: copyOpacity, y: copyY }}>
+          <p className="scene-eyebrow">{hero.eyebrow}</p>
+          <h1 id="hero-title">
+            {hero.headlinePrefix}
+            <em>{hero.headlineEmphasis}</em>
+          </h1>
+          <p className="scene-copy" style={{ marginInline: "auto" }}>{hero.copy}</p>
+          <div className="scene-actions">
+            <a className="primary liquid-glass" href="/contact">
+              {hero.primaryCta} <ArrowRight size={18} />
+            </a>
+            <a className="text-link" href="/gallery">{hero.secondaryCta}</a>
+          </div>
         </motion.div>
-        <motion.div
-          className="location-pill liquid-glass"
-          style={{ opacity: copyOpacity, pointerEvents: copyPointerEvents }}
-        >
+        <motion.div className="location-pill liquid-glass" style={{ opacity: copyOpacity }}>
           <Sprout size={26} />
-          <span>Proudly serving</span>
-          <strong>Scottsdale, Gilbert, Chandler &amp; Greater Phoenix</strong>
+          <span>{hero.locationEyebrow}</span>
+          <strong>{hero.locationCopy}</strong>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }
 
-export function HeroScrollVideo() {
-  const reducedMotion = useReducedMotion();
-  return reducedMotion ? <StaticHero /> : <ScrubbedHero />;
+/**
+ * Scroll-scrubbed hero: the video plays forward/backward in lockstep with
+ * scroll position rather than on a timer, so the blueprint resolves into
+ * the finished pool exactly as fast as the user scrolls. Falls back to a
+ * static final-frame image with immediate copy for prefers-reduced-motion.
+ */
+export default function HeroScrollVideo() {
+  const reducedMotion = usePrefersReducedMotion();
+  return reducedMotion ? <ReducedMotionHero /> : <ScrubbedHero />;
 }

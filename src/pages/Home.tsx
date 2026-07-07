@@ -1,24 +1,34 @@
 import React from "react";
 import { ArrowRight, Flame, Medal, Sparkles, Sprout, Users } from "lucide-react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import HeroScrollVideo from "../components/HeroScrollVideo";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema } from "../lib/schema";
 import { cities, site } from "../lib/siteData";
-import { HeroScrollVideo } from "../components/HeroScrollVideo";
+import { finalCta, serviceAreasTeaser, showcaseScenes, transformation, whyUs } from "../content/home";
 
 /**
- * PLACEHOLDER MEDIA — see note in the original storyboard build. Swap each
- * src for the rendered asset from the matching Image Board once generated.
+ * PLACEHOLDER MEDIA for scenes below the hero — swap each src for the
+ * rendered Image Board asset once generated. The hero itself now uses the
+ * real scroll-scrubbed blueprint-to-paradise video (see HeroScrollVideo).
  */
 const media = {
   emptyYard: "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=1200&q=85",
   construction: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85",
-  paradiseFrame: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
-  pool: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2400&q=85",
+  paradiseFrame: "https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=1200&q=85",
+  pool: "https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=2400&q=85",
   outdoorLiving: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=85",
   family: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2400&q=85",
   landscape: "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=2400&q=85",
   night: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+};
+
+const showcaseImages: Record<string, string> = {
+  "pool-design": media.pool,
+  "outdoor-living": media.outdoorLiving,
+  family: media.family,
+  "landscape-design": media.landscape,
+  "night-mode": media.night,
 };
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -49,24 +59,22 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
 }
 
 function SceneTransformation() {
-  const frames = [
-    { label: "Empty Yard", src: media.emptyYard },
-    { label: "Construction", src: media.construction },
-    { label: "Paradise", src: media.paradiseFrame },
-  ];
   return (
     <section className="scene" style={{ minHeight: "auto", background: "var(--near-black)" }} aria-labelledby="transform-title">
       <div className="transform-track">
         <Reveal>
-          <p className="scene-eyebrow">The Transformation</p>
-          <h2 id="transform-title">From bare dirt to <em>backyard paradise</em></h2>
-          <p className="scene-copy">Every project follows the same arc: honest design, careful construction, and a finished space built for the way your family actually lives outside.</p>
+          <p className="scene-eyebrow">{transformation.eyebrow}</p>
+          <h2 id="transform-title">
+            {transformation.headlinePrefix}
+            <em>{transformation.headlineEmphasis}</em>
+          </h2>
+          <p className="scene-copy">{transformation.copy}</p>
         </Reveal>
         <div className="transform-frames">
-          {frames.map((frame, i) => (
-            <Reveal className="transform-frame" delay={i * 0.12} key={frame.label}>
-              <img src={frame.src} alt={`${frame.label} stage of an Arizona backyard transformation`} />
-              <span className="frame-label">{frame.label}</span>
+          {[media.emptyYard, media.construction, media.paradiseFrame].map((src, i) => (
+            <Reveal className="transform-frame" delay={i * 0.12} key={transformation.frames[i].label}>
+              <img src={src} alt={`${transformation.frames[i].label} stage of an Arizona backyard transformation`} />
+              <span className="frame-label">{transformation.frames[i].label}</span>
             </Reveal>
           ))}
         </div>
@@ -75,7 +83,7 @@ function SceneTransformation() {
   );
 }
 
-function ShowcaseScene({ id, eyebrow, title, copy, image, alt, dark = false }: { id: string; eyebrow: string; title: React.ReactNode; copy: string; image: string; alt: string; dark?: boolean }) {
+function ShowcaseScene({ id, eyebrow, headlinePrefix, headlineEmphasis, copy, image, alt, dark = false }: { id: string; eyebrow: string; headlinePrefix: string; headlineEmphasis: string; copy: string; image: string; alt: string; dark?: boolean }) {
   return (
     <section className="scene" id={id} aria-label={eyebrow}>
       <ParallaxImage src={image} alt={alt} />
@@ -83,7 +91,10 @@ function ShowcaseScene({ id, eyebrow, title, copy, image, alt, dark = false }: {
       <div className="scene-content">
         <Reveal>
           <p className="scene-eyebrow">{eyebrow}</p>
-          <h2>{title}</h2>
+          <h2>
+            {headlinePrefix}
+            <em>{headlineEmphasis}</em>
+          </h2>
           <p className="scene-copy">{copy}</p>
         </Reveal>
       </div>
@@ -91,32 +102,29 @@ function ShowcaseScene({ id, eyebrow, title, copy, image, alt, dark = false }: {
   );
 }
 
-const whyUs = [
-  { Icon: Sparkles, title: "Custom Design", body: "No templates — every space is designed around how your family lives outside." },
-  { Icon: Medal, title: "Premium Craftsmanship", body: "Licensed contractors and boutique-level attention on every build." },
-  { Icon: Sprout, title: "Arizona Expertise", body: "Desert-smart planting and materials built for Arizona heat and sun." },
-  { Icon: Users, title: "Family-Focused", body: "Spaces designed for gathering, relaxing, and everyday outdoor living." },
-  { Icon: Flame, title: "One Team, Start to Finish", body: "From concept through final walkthrough — a single point of contact." },
-];
+const whyUsIcons = [Sparkles, Medal, Sprout, Users, Flame];
 
 function WhyUs() {
   return (
     <section className="why-us" id="why-us">
       <div className="why-us-inner">
         <Reveal>
-          <p className="section-label">Why Homeowners Choose Us</p>
+          <p className="section-label">{whyUs.label}</p>
           <h2 style={{ fontFamily: "var(--font-headline)", fontSize: "clamp(1.9rem,4vw,3rem)", color: "#fdfaf4", maxWidth: "18ch" }}>
-            We build the place your family never wants to leave.
+            {whyUs.headline}
           </h2>
         </Reveal>
         <div className="why-grid">
-          {whyUs.map((item, i) => (
-            <Reveal className="why-card liquid-glass" delay={i * 0.08} key={item.title}>
-              <span className="icon-pill liquid-glass"><item.Icon size={20} /></span>
-              <h4>{item.title}</h4>
-              <p>{item.body}</p>
-            </Reveal>
-          ))}
+          {whyUs.items.map((item, i) => {
+            const Icon = whyUsIcons[i % whyUsIcons.length];
+            return (
+              <Reveal className="why-card liquid-glass" delay={i * 0.08} key={item.title}>
+                <span className="icon-pill liquid-glass"><Icon size={20} /></span>
+                <h4>{item.title}</h4>
+                <p>{item.body}</p>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -128,7 +136,7 @@ function ServiceAreasTeaser() {
     <section className="service-areas" id="service-areas">
       <div className="service-areas-inner">
         <Reveal>
-          <h2>Serving custom pool &amp; landscape clients across the East Valley</h2>
+          <h2>{serviceAreasTeaser.headline}</h2>
         </Reveal>
         <Reveal delay={0.1} className="city-chip-list">
           {cities.map((city) => (
@@ -146,11 +154,14 @@ function FinalCta() {
   return (
     <section className="scene final-cta" id="contact" style={{ minHeight: "auto", paddingTop: "clamp(70px,10vw,140px)", paddingBottom: 0 }}>
       <Reveal className="contact-panel liquid-glass">
-        <h2>Let&rsquo;s Build <em>Your Paradise</em></h2>
-        <p>Tell us about the backyard you keep imagining, and we&rsquo;ll shape the first design conversation around it.</p>
+        <h2>
+          {finalCta.headlinePrefix}
+          <em>{finalCta.headlineEmphasis}</em>
+        </h2>
+        <p>{finalCta.copy}</p>
         <form onSubmit={(e) => e.preventDefault()}>
           <input aria-label="Email address" placeholder="Enter your email" type="email" />
-          <button type="submit"><span>Request Consultation</span><ArrowRight size={18} /></button>
+          <button type="submit"><span>{finalCta.ctaLabel}</span><ArrowRight size={18} /></button>
         </form>
       </Reveal>
     </section>
@@ -168,11 +179,19 @@ export default function Home() {
       />
       <HeroScrollVideo />
       <SceneTransformation />
-      <ShowcaseScene id="pool-design" eyebrow="Scene 03 · Custom Pool Design" title={<>Geometric lines. <em>Resort-level detail.</em></>} copy="Custom pool design with integrated spas, water features, and travertine decking — engineered for Arizona's climate and built to be the centerpiece of your backyard." image={media.pool} alt="Luxury geometric custom swimming pool with travertine decking" />
-      <ShowcaseScene id="outdoor-living" eyebrow="Scene 04 · Outdoor Living" title={<>Every evening, <em>an occasion.</em></>} copy="Covered patios, outdoor kitchens, and stone fireplaces designed for the way Arizona families actually spend their evenings outside." image={media.outdoorLiving} alt="Luxury covered patio with outdoor kitchen and fireplace" />
-      <ShowcaseScene id="family" eyebrow="Scene 05 · Family Experience" title={<>Built for the moments <em>that matter most.</em></>} copy="From pool days to quiet evenings, every space is designed around how your family actually gathers outdoors." image={media.family} alt="Family enjoying a luxury backyard oasis" />
-      <ShowcaseScene id="landscape-design" eyebrow="Scene 06 · Landscape Design" title={<>Desert-smart. <em>Award-worthy.</em></>} copy="Mature palms, layered native planting, and architectural lighting — landscape design built to thrive in the Arizona desert and mature beautifully over time." image={media.landscape} alt="Award-winning Arizona desert landscape design with mature palms and lighting" />
-      <ShowcaseScene id="night-mode" eyebrow="Scene 07 · Night Mode" title={<>Paradise, <em>after dark.</em></>} copy="Landscape lighting and fire features designed so your backyard is just as breathtaking at twilight as it is at noon." image={media.night} alt="Luxury Arizona backyard illuminated at twilight with landscape lighting and fire features" dark />
+      {showcaseScenes.map((scene) => (
+        <ShowcaseScene
+          key={scene.id}
+          id={scene.id}
+          eyebrow={scene.eyebrow}
+          headlinePrefix={scene.headlinePrefix}
+          headlineEmphasis={scene.headlineEmphasis}
+          copy={scene.copy}
+          image={showcaseImages[scene.id]}
+          alt={scene.alt}
+          dark={scene.dark}
+        />
+      ))}
       <WhyUs />
       <ServiceAreasTeaser />
       <FinalCta />

@@ -92,34 +92,22 @@ video {
 }
 
 /* ==========================================================================
-   SCROLL-SCRUBBED HERO VIDEO — tall runway with a pinned inner wrapper.
-   The pinned wrapper reuses .scene-media/.scene-scrim/.scene-content from
+   SCROLL-SCRUBBED HERO VIDEO — the outer scroll runway is sized via inline
+   style (runwayVh) in HeroScrollVideo.tsx; .hero-sticky-wrap is the pinned
+   inner wrapper. It reuses .scene-media/.scene-scrim/.scene-content from
    the cinematic scenes system below so it matches the rest of the site.
    ========================================================================== */
-.hero-scroll-video {
-  position: relative;
-  height: 280vh;
-}
-
-.hero-scroll-video-inner {
+.hero-sticky-wrap {
   position: sticky;
   top: 0;
   height: 100vh;
-  display: flex;
-  align-items: flex-end;
+  height: 100dvh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   isolation: isolate;
   padding: clamp(100px, 12vw, 160px) clamp(20px, 6vw, 88px) clamp(64px, 9vw, 120px);
-}
-
-@media (max-width: 640px) {
-  .hero-scroll-video {
-    height: 180vh;
-  }
-
-  .hero-scroll-video-inner {
-    height: 100dvh;
-  }
 }
 
 /* ==========================================================================
