@@ -37,7 +37,7 @@ export default function CityPage() {
       <section className="page-hero">
         <img
           className="scene-media"
-          src="https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=2000&q=85"
+          src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85"
           alt={`Custom pool and landscape design in ${city.cityName}, ${city.region}`}
           style={{ position: "absolute", inset: 0, objectFit: "cover" }}
         />
