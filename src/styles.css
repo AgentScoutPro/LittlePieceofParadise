@@ -1,4 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap");
+/* ==========================================================================
+   BRAND TOKENS — Little Piece of Paradise
+   ========================================================================== */
+:root {
+  --paradise-blue: #3a8fb7;
+  --deep-water: #1f4d68;
+  --desert-sand: #d9c5a1;
+  --travertine: #efe8dd;
+  --palm-green: #5e7d57;
+  --charcoal: #2b2b2b;
+
+  --bg: #0c1113;
+  --bg-soft: #10171a;
+  --text-hi: var(--travertine);
+  --text-lo: rgba(239, 232, 221, 0.72);
+  --font-head: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-accent: "Cormorant Garamond", Georgia, serif;
+}
 
 * {
   box-sizing: border-box;
@@ -6,15 +24,15 @@
 
 html {
   scroll-behavior: smooth;
-  background: #030403;
+  background: var(--bg);
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  color: #f6f2e9;
-  background: #030403;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-hi);
+  background: var(--bg);
+  font-family: var(--font-body);
 }
 
 a {
@@ -33,12 +51,12 @@ video {
 }
 
 .liquid-glass {
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(217, 197, 161, 0.055);
   background-blend-mode: luminosity;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.16), 0 22px 70px rgba(0, 0, 0, 0.28);
+  box-shadow: inset 0 1px 1px rgba(239, 232, 221, 0.14), 0 22px 70px rgba(0, 0, 0, 0.32);
   overflow: hidden;
   position: relative;
 }
@@ -51,12 +69,12 @@ video {
   padding: 1.4px;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.16) 20%,
+    rgba(58, 143, 183, 0.5) 0%,
+    rgba(217, 197, 161, 0.18) 20%,
     rgba(255, 255, 255, 0) 40%,
     rgba(255, 255, 255, 0) 60%,
-    rgba(255, 255, 255, 0.16) 80%,
-    rgba(255, 255, 255, 0.45) 100%
+    rgba(217, 197, 161, 0.16) 80%,
+    rgba(58, 143, 183, 0.4) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -64,6 +82,9 @@ video {
   pointer-events: none;
 }
 
+/* ==========================================================================
+   HERO — Scene 1: The Dream
+   ========================================================================== */
 .hero {
   min-height: 100vh;
   min-height: 100svh;
@@ -96,10 +117,9 @@ video {
 
 .hero-scrim {
   z-index: 1;
-  background:
-    radial-gradient(circle at 76% 62%, rgba(177, 165, 126, 0.18), transparent 24%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.36) 43%, rgba(0, 0, 0, 0.2) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.12) 52%, rgba(3, 4, 3, 0.96) 100%);
+  background: radial-gradient(circle at 76% 62%, rgba(58, 143, 183, 0.2), transparent 24%),
+    linear-gradient(90deg, rgba(12, 17, 19, 0.85) 0%, rgba(12, 17, 19, 0.4) 43%, rgba(12, 17, 19, 0.22) 100%),
+    linear-gradient(180deg, rgba(12, 17, 19, 0.4), rgba(12, 17, 19, 0.14) 52%, rgba(12, 17, 19, 0.97) 100%);
 }
 
 .nav {
@@ -122,49 +142,66 @@ video {
   min-width: 170px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.58rem;
+  font-family: var(--font-head);
+  font-size: 0.56rem;
   line-height: 1.05;
 }
 
 .brand strong {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: 1.55rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--desert-sand);
 }
 
 .nav-links {
   display: flex;
   gap: clamp(18px, 3vw, 42px);
-  color: rgba(246, 242, 233, 0.78);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  color: var(--text-lo);
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .nav-links a:hover {
-  color: #fff;
+  color: var(--travertine);
+}
+
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--travertine);
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 .nav-cta,
 .primary,
-.video-button {
+.video-button,
+.section-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   border-radius: 999px;
-  color: #fff;
+  color: #fffdf7;
+  font-family: var(--font-head);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .nav-cta {
   min-height: 44px;
   padding: 0 22px;
+  background: rgba(58, 143, 183, 0.45);
 }
 
 .hero-copy {
@@ -180,29 +217,31 @@ video {
 .about h2,
 .contact h2 {
   margin: 0;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .hero-copy h1 {
-  max-width: 10ch;
-  color: #fffdf6;
-  font-size: clamp(4.5rem, 10vw, 10.5rem);
-  line-height: 0.86;
+  max-width: 13ch;
+  color: #fffdf7;
+  font-size: clamp(3.2rem, 7.4vw, 6.6rem);
+  line-height: 1.02;
 }
 
 em {
   font-style: italic;
-  color: rgba(234, 224, 196, 0.92);
+  font-family: var(--font-accent);
+  font-weight: 500;
+  color: var(--desert-sand);
 }
 
 .hero-copy p {
   max-width: 560px;
-  margin: 28px 0 0;
-  color: rgba(255, 255, 255, 0.82);
+  margin: 26px 0 0;
+  color: var(--text-lo);
   font-size: clamp(1rem, 1.45vw, 1.2rem);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .hero-actions {
@@ -210,21 +249,22 @@ em {
   flex-wrap: wrap;
   align-items: center;
   gap: 24px;
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 .primary {
   min-height: 58px;
   padding: 0 28px;
-  background: rgba(178, 188, 148, 0.58);
+  background: rgba(58, 143, 183, 0.62);
 }
 
 .text-link {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-  color: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(239, 232, 221, 0.7);
+  color: var(--text-lo);
+  font-family: var(--font-head);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   padding-bottom: 7px;
   text-transform: uppercase;
 }
@@ -240,18 +280,19 @@ em {
   grid-template-columns: 42px 1fr;
   gap: 5px 14px;
   padding: 20px;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--text-lo);
 }
 
 .location-card svg {
   grid-row: span 2;
-  color: #d4d0a0;
+  color: var(--desert-sand);
 }
 
 .location-card span {
+  font-family: var(--font-head);
   font-size: 0.58rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -260,48 +301,120 @@ em {
   line-height: 1.45;
 }
 
+/* ==========================================================================
+   SHARED SECTION SHELL
+   ========================================================================== */
 .section {
   position: relative;
   overflow: hidden;
-  padding: clamp(76px, 10vw, 150px) clamp(20px, 6vw, 88px);
-  background: #030403;
+  padding: clamp(72px, 10vw, 140px) clamp(20px, 6vw, 88px);
+  background: var(--bg);
 }
 
+.section-alt {
+  background: var(--bg-soft);
+}
+
+.section-label {
+  margin: 0 0 18px;
+  color: rgba(217, 197, 161, 0.68);
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin-bottom: clamp(36px, 7vw, 72px);
+  color: #fffdf7;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  line-height: 1.04;
+}
+
+.section-title em {
+  color: var(--paradise-blue);
+}
+
+.section-kicker {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.section-copy {
+  max-width: 700px;
+  color: var(--text-lo);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.75;
+}
+
+/* ==========================================================================
+   ABOUT / BRAND STATEMENT
+   ========================================================================== */
 .about {
-  padding-top: clamp(84px, 12vw, 180px);
-  background:
-    radial-gradient(ellipse at top, rgba(203, 190, 143, 0.08), transparent 62%),
-    #030403;
+  padding-top: clamp(84px, 12vw, 160px);
+  background: radial-gradient(ellipse at top, rgba(58, 143, 183, 0.1), transparent 62%), var(--bg);
 }
 
 .about-copy,
 .featured,
 .philosophy,
 .services,
-.contact-panel {
+.contact-panel,
+.transformation,
+.area-panel {
   width: min(1180px, 100%);
   margin: 0 auto;
 }
 
-.section-label {
-  margin: 0 0 18px;
-  color: rgba(210, 204, 168, 0.62);
-  font-size: 0.72rem;
+.about h2 {
+  max-width: 1020px;
+  color: #fffdf7;
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  line-height: 1.08;
+}
+
+/* ==========================================================================
+   TRANSFORMATION — Scene 2: Empty Yard → Paradise
+   ========================================================================== */
+.transformation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.transformation-frame {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.transformation-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.transformation-frame .frame-tag {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.about h2 {
-  max-width: 1020px;
-  color: #fffaf0;
-  font-size: clamp(2.6rem, 6.5vw, 7.2rem);
-  line-height: 1.03;
-}
-
+/* ==========================================================================
+   FEATURED PROJECT (video frame reused for Pool Design + Night scenes)
+   ========================================================================== */
 .video-frame {
   position: relative;
-  min-height: 560px;
+  min-height: 520px;
   border-radius: 28px;
   overflow: hidden;
 }
@@ -310,14 +423,14 @@ em {
 .video-frame img {
   width: 100%;
   height: 100%;
-  min-height: 560px;
+  min-height: 520px;
   object-fit: cover;
 }
 
 .video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.86) 100%);
+  background: linear-gradient(180deg, transparent 30%, rgba(12, 17, 19, 0.9) 100%);
 }
 
 .video-copy {
@@ -332,16 +445,17 @@ em {
 .video-copy h3,
 .service-card h3 {
   margin: 0;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-weight: 400;
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: 600;
 }
 
 .video-copy p:last-child,
 .service-card p,
-.contact p {
-  color: rgba(255, 255, 255, 0.68);
-  line-height: 1.65;
+.contact p,
+.why-card p {
+  color: var(--text-lo);
+  line-height: 1.7;
 }
 
 .video-button {
@@ -350,24 +464,25 @@ em {
   bottom: clamp(18px, 4vw, 42px);
   min-height: 52px;
   padding: 0 26px;
+  background: rgba(58, 143, 183, 0.55);
 }
 
-.section-title {
-  margin-bottom: clamp(44px, 8vw, 96px);
-  color: #fffaf0;
-  font-size: clamp(3.4rem, 8vw, 8.5rem);
-  line-height: 0.92;
-}
-
-.section-title em {
-  color: rgba(255, 255, 255, 0.36);
-}
-
+/* ==========================================================================
+   PHILOSOPHY-STYLE TWO-COLUMN (reused for Outdoor Living / Landscape scenes)
+   ========================================================================== */
 .philosophy-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
   gap: clamp(28px, 5vw, 70px);
   align-items: center;
+}
+
+.philosophy-grid.reverse {
+  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1fr);
+}
+
+.philosophy-grid.reverse .image-panel {
+  order: 2;
 }
 
 .image-panel {
@@ -391,25 +506,52 @@ em {
 
 .philosophy-text {
   display: grid;
-  gap: 34px;
+  gap: 30px;
 }
 
 .philosophy-text p:not(.section-label) {
   margin: 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--text-lo);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1.75;
 }
 
 .divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(217, 197, 161, 0.16);
 }
 
+/* ==========================================================================
+   FAMILY LIFESTYLE — Scene 5
+   ========================================================================== */
+.lifestyle {
+  text-align: center;
+}
+
+.lifestyle h2 {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lifestyle-image {
+  width: min(1000px, 100%);
+  margin: clamp(36px, 6vw, 64px) auto 0;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 8;
+}
+
+.lifestyle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   SERVICES GRID
+   ========================================================================== */
 .services {
-  background:
-    radial-gradient(ellipse at center, rgba(143, 160, 112, 0.08), transparent 58%),
-    #030403;
+  background: radial-gradient(ellipse at center, rgba(94, 125, 87, 0.1), transparent 58%), var(--bg);
 }
 
 .services-header {
@@ -422,67 +564,125 @@ em {
 
 .services-header h2 {
   margin: 0;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(2.8rem, 6vw, 5.7rem);
-  font-weight: 400;
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 600;
 }
 
 .services-header span {
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 0.8rem;
+  color: var(--text-lo);
+  font-family: var(--font-head);
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .service-card {
-  border-radius: 26px;
+  border-radius: 22px;
 }
 
 .service-media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 
 .service-body {
   position: relative;
-  padding: 24px;
+  padding: 22px;
 }
 
 .service-topline {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .service-topline > span:first-child {
-  color: rgba(210, 204, 168, 0.62);
-  font-size: 0.66rem;
+  color: rgba(217, 197, 161, 0.7);
+  font-family: var(--font-head);
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .icon-pill {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   display: grid;
   place-items: center;
-  color: #d5d0a0;
+  color: var(--desert-sand);
 }
 
 .card-arrow {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(239, 232, 221, 0.5);
 }
 
+/* ==========================================================================
+   SERVICE AREAS
+   ========================================================================== */
+.area-panel {
+  text-align: center;
+}
+
+.area-panel h2 {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.area-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: clamp(28px, 5vw, 48px);
+}
+
+.area-pill {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: var(--font-head);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-lo);
+  background: rgba(217, 197, 161, 0.08);
+  border: 1px solid rgba(217, 197, 161, 0.16);
+}
+
+/* ==========================================================================
+   WHY US
+   ========================================================================== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.why-card {
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.why-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--desert-sand);
+}
+
+/* ==========================================================================
+   FINAL CTA
+   ========================================================================== */
 .contact {
   padding-bottom: 88px;
 }
@@ -496,8 +696,8 @@ em {
 .contact h2 {
   width: min(840px, 100%);
   margin: 0 auto;
-  font-size: clamp(3rem, 7vw, 7rem);
-  line-height: 0.98;
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  line-height: 1.05;
 }
 
 .contact p {
@@ -505,12 +705,23 @@ em {
   margin: 22px auto 0;
 }
 
+.contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--desert-sand);
+}
+
 form {
   width: min(620px, 100%);
   margin: 34px auto 0;
   padding: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(217, 197, 161, 0.1);
   display: flex;
   gap: 8px;
 }
@@ -521,12 +732,12 @@ input {
   border: 0;
   outline: 0;
   background: transparent;
-  color: white;
+  color: var(--travertine);
   padding: 0 18px;
 }
 
 input::placeholder {
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(239, 232, 221, 0.42);
 }
 
 button {
@@ -538,11 +749,12 @@ button {
   gap: 12px;
   padding: 0 22px;
   color: #10120d;
-  background: #f3efe2;
+  background: var(--travertine);
   cursor: pointer;
+  font-family: var(--font-head);
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -561,6 +773,26 @@ button {
   place-items: center;
 }
 
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  padding: 32px clamp(20px, 6vw, 88px) 40px;
+  color: rgba(239, 232, 221, 0.5);
+  font-size: 0.78rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-footer a:hover {
+  color: var(--desert-sand);
+}
+
+/* ==========================================================================
+   MOTION / RESPONSIVE
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -583,7 +815,8 @@ button {
     padding: 14px 16px;
   }
 
-  .nav-links {
+  .nav-links,
+  .nav-phone {
     display: none;
   }
 
@@ -601,10 +834,6 @@ button {
     padding-top: 70px;
   }
 
-  .hero-copy h1 {
-    font-size: clamp(4rem, 18vw, 6.8rem);
-  }
-
   .location-card {
     position: relative;
     right: auto;
@@ -613,13 +842,20 @@ button {
   }
 
   .philosophy-grid,
-  .service-grid {
+  .philosophy-grid.reverse,
+  .service-grid,
+  .transformation-grid,
+  .why-grid {
     grid-template-columns: 1fr;
+  }
+
+  .philosophy-grid.reverse .image-panel {
+    order: initial;
   }
 
   .video-frame,
   .video-frame video {
-    min-height: 620px;
+    min-height: 560px;
   }
 
   .video-button {
@@ -637,6 +873,11 @@ button {
 
   input {
     min-height: 48px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -674,5 +915,313 @@ button {
   button {
     justify-content: center;
     width: 100%;
+  }
+}
+
+/* ---------- GENERIC PAGE TEMPLATES (service / city / stub pages) ---------- */
+
+.page-hero {
+  position: relative;
+  min-height: 56vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.breadcrumb-nav {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(90px, 12vw, 130px) clamp(20px, 5vw, 72px) 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-headline);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(239, 232, 221, 0.55);
+}
+
+.breadcrumb-nav a:hover {
+  color: var(--desert-sand);
+}
+
+.page-content {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: clamp(50px, 8vw, 90px) clamp(20px, 5vw, 72px) clamp(70px, 10vw, 130px);
+}
+
+.todo-banner {
+  border: 1px dashed rgba(58, 143, 183, 0.5);
+  background: rgba(58, 143, 183, 0.08);
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(239, 232, 221, 0.78);
+  margin-bottom: 32px;
+}
+
+.todo-banner strong {
+  color: var(--desert-sand);
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.index-card {
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.index-card h3 {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-size: 1.05rem;
+  color: #fdfaf4;
+}
+
+.index-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(239, 232, 221, 0.68);
+  line-height: 1.6;
+}
+
+.index-card .card-link {
+  margin-top: auto;
+  font-family: var(--font-headline);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paradise-blue);
+}
+
+/* ---------- GLOBAL SITE FOOTER (persists across all routes) ---------- */
+
+.site-footer-global {
+  background: var(--near-black);
+  border-top: 1px solid rgba(239, 232, 221, 0.1);
+  padding: clamp(40px, 6vw, 64px) clamp(20px, 6vw, 88px) 28px;
+}
+
+.site-footer-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(239, 232, 221, 0.1);
+}
+
+.site-footer-inner strong {
+  display: block;
+  font-family: var(--font-headline);
+  font-size: 1rem;
+  color: #fdfaf4;
+  margin-bottom: 8px;
+}
+
+.site-footer-inner p {
+  margin: 0;
+  color: rgba(239, 232, 221, 0.6);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.site-footer-links,
+.site-footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(239, 232, 221, 0.72);
+}
+
+.site-footer-links a:hover,
+.site-footer-nav a:hover {
+  color: var(--desert-sand);
+}
+
+.site-footer-copy {
+  width: min(1180px, 100%);
+  margin: 20px auto 0;
+  color: rgba(239, 232, 221, 0.4);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 720px) {
+  .index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- SERVICE / CITY PAGE CONTENT SECTIONS ---------- */
+
+.page-content section {
+  margin-bottom: 44px;
+}
+
+.content-heading {
+  font-family: var(--font-headline);
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  color: #fdfaf4;
+  margin: 0 0 16px;
+}
+
+.body-copy {
+  color: rgba(239, 232, 221, 0.8);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+
+.content-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  color: rgba(239, 232, 221, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.process-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.process-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.process-list strong {
+  font-family: var(--font-headline);
+  font-size: 0.92rem;
+  color: var(--desert-sand);
+}
+
+.process-list span {
+  color: rgba(239, 232, 221, 0.75);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-item {
+  border-radius: 14px;
+  border: 1px solid rgba(239, 232, 221, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 18px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 0;
+  font-family: var(--font-headline);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fdfaf4;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  color: var(--paradise-blue);
+  font-size: 1.1rem;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faq-item p {
+  margin: 0 0 16px;
+  color: rgba(239, 232, 221, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ---------- TESTIMONIALS ---------- */
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.testimonial-card {
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.testimonial-icon {
+  color: var(--paradise-blue);
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(239, 232, 221, 0.9);
+}
+
+.testimonial-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-card figcaption strong {
+  font-family: var(--font-headline);
+  font-size: 0.85rem;
+  color: #fdfaf4;
+}
+
+.testimonial-card figcaption span {
+  font-size: 0.78rem;
+  color: rgba(239, 232, 221, 0.55);
+}
+
+@media (max-width: 720px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
   }
 }
