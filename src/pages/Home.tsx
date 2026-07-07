@@ -4,13 +4,13 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema } from "../lib/schema";
 import { cities, site } from "../lib/siteData";
+import { HeroScrollVideo } from "../components/HeroScrollVideo";
 
 /**
  * PLACEHOLDER MEDIA — see note in the original storyboard build. Swap each
  * src for the rendered asset from the matching Image Board once generated.
  */
 const media = {
-  dream: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
   emptyYard: "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=1200&q=85",
   construction: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85",
   paradiseFrame: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
@@ -45,37 +45,6 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
     <div ref={ref} style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
       <motion.img src={src} alt={alt} className="scene-media" style={{ y, scale: 1.15 }} />
     </div>
-  );
-}
-
-function SceneDream() {
-  return (
-    <section className="scene" id="top" aria-labelledby="hero-title">
-      <ParallaxImage src={media.dream} alt="Luxury Arizona backyard oasis at sunset with custom pool and fire features" />
-      <div className="scene-scrim scrim-standard" />
-      <div className="scene-content centered">
-        <motion.p className="scene-eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          Custom Pools &amp; Luxury Outdoor Living · Arizona
-        </motion.p>
-        <motion.h1 id="hero-title" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.8, 0.2, 1] }}>
-          Create Your Own <em>Little Piece of Paradise</em>
-        </motion.h1>
-        <motion.p className="scene-copy" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} style={{ marginInline: "auto" }}>
-          Custom pools, luxury landscaping, outdoor living spaces, and backyard transformations designed for Arizona living.
-        </motion.p>
-        <motion.div className="scene-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.38 }}>
-          <a className="primary liquid-glass" href="/contact">
-            Request Free Design Consultation <ArrowRight size={18} />
-          </a>
-          <a className="text-link" href="/gallery">View Our Work</a>
-        </motion.div>
-      </div>
-      <motion.div className="location-pill liquid-glass" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}>
-        <Sprout size={26} />
-        <span>Proudly serving</span>
-        <strong>Scottsdale, Gilbert, Chandler &amp; Greater Phoenix</strong>
-      </motion.div>
-    </section>
   );
 }
 
@@ -197,7 +166,7 @@ export default function Home() {
         path="/"
         schema={breadcrumbSchema([{ name: "Home", path: "/" }])}
       />
-      <SceneDream />
+      <HeroScrollVideo />
       <SceneTransformation />
       <ShowcaseScene id="pool-design" eyebrow="Scene 03 · Custom Pool Design" title={<>Geometric lines. <em>Resort-level detail.</em></>} copy="Custom pool design with integrated spas, water features, and travertine decking — engineered for Arizona's climate and built to be the centerpiece of your backyard." image={media.pool} alt="Luxury geometric custom swimming pool with travertine decking" />
       <ShowcaseScene id="outdoor-living" eyebrow="Scene 04 · Outdoor Living" title={<>Every evening, <em>an occasion.</em></>} copy="Covered patios, outdoor kitchens, and stone fireplaces designed for the way Arizona families actually spend their evenings outside." image={media.outdoorLiving} alt="Luxury covered patio with outdoor kitchen and fireplace" />
