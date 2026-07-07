@@ -27,7 +27,7 @@ export const ownerStory = [
 export const processSteps = [
   { title: "Schedule a consultation", body: "Call or text to set up a personal consultation and start building your project wish list." },
   { title: "Meet & discuss your vision", body: "We talk through your style preferences, family dynamics, and goals, and take photos or measurements on-site." },
-  { title: "Design & presentation", body: "Depending on your project, we create a custom design or visual aid and schedule a time to walk through it together." },
+  { title: "Design & presentation", body: "Depending on your project, we create a custom 2D or 3D rendering or a simpler visual aid, and schedule a time to walk through it together." },
   { title: "Review & refine", body: "We revisit the design options together and make any revisions until it's right." },
   { title: "Estimate & scheduling", body: "Once the design is approved, we build a detailed estimate and schedule your installation." },
   { title: "Installation", body: "Your project is brought to life by our licensed, insured team of specialists." },

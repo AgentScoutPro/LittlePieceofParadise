@@ -193,4 +193,140 @@ export const cityContent: Record<string, CityContent> = {
       { question: "Do you work with agricultural-zoned or larger acreage properties near Casa Grande?", answer: "Yes, we've designed for a range of property types in the area, including larger acreage lots — we'll assess specific zoning and setback requirements during the site visit." },
     ],
   },
+  "paradise-valley-pool-builder": {
+    intro: [
+      "Paradise Valley is one of the most affluent communities in the state, tucked between Camelback and Mummy Mountain, and it holds property owners and their contractors to some of the strictest design and lighting standards in Arizona — low-profile structures, dark-sky-conscious lighting, and a strong emphasis on preserving mountain views.",
+      "We design pools and landscaping in Paradise Valley to meet that standard from the start: resort-level finishes and layered lighting that stays within the town's dark-sky guidelines rather than fighting them.",
+    ],
+    localNotes:
+      "Paradise Valley's town code includes some of the region's most detailed design and lighting ordinances — we factor those requirements into the plan from day one so approval doesn't stall the project.",
+    whyHomeowners:
+      "Paradise Valley clients are comparing our work against some of the finest private estates in the Southwest — we design and document every project to match that level of detail and to move cleanly through the town's review process.",
+    faqs: [
+      { question: "Does Paradise Valley have specific design or lighting restrictions?", answer: "Yes, the Town of Paradise Valley has detailed design review and dark-sky lighting ordinances. We design landscape lighting and structures to meet those requirements from the start." },
+      { question: "What's the cost range for a luxury pool in Paradise Valley?", answer: "Paradise Valley projects vary widely based on scale and finish level. We provide a detailed, itemized quote after the design is finalized." },
+      { question: "Do you handle town design review submittals?", answer: "Yes, we prepare and submit the documentation required for Paradise Valley's design review process as part of the project." },
+      { question: "Can you preserve mountain views from Camelback or Mummy Mountain in the design?", answer: "Yes, view preservation is a standard part of site planning for Paradise Valley properties given how central those views are to the property's value." },
+      { question: "How long does a high-end custom pool project take in Paradise Valley?", answer: "Complex luxury builds typically take 10 to 16 weeks for construction, depending on design detail and town approval timelines." },
+    ],
+  },
+  "arcadia-pool-builder": {
+    intro: [
+      "Arcadia's roots as a citrus-growing district give the neighborhood something few Phoenix-area communities have: decades-old mature trees, flood-irrigated lots, and mid-century ranch homes on generous, established lots between Camelback Mountain and Downtown Phoenix.",
+      "We design pools and landscaping in Arcadia to work with that mature canopy rather than clearing it — positioning pools and hardscape around established citrus and shade trees that took decades to grow.",
+    ],
+    localNotes:
+      "Many Arcadia lots still have flood irrigation infrastructure from the neighborhood's agricultural history, which affects drainage and landscape planning in ways a typical Phoenix suburb doesn't need to consider.",
+    whyHomeowners:
+      "Arcadia homeowners are often renovating a backyard around trees and mature landscaping worth preserving — we have the experience to design around established growth instead of defaulting to a clear-and-rebuild approach.",
+    faqs: [
+      { question: "Can you design around Arcadia's mature citrus trees?", answer: "Yes, preserving established trees is a common priority in Arcadia projects, and we design pool and hardscape placement around them wherever possible." },
+      { question: "Does flood irrigation affect pool or landscape design in Arcadia?", answer: "It can affect drainage and grading — we assess your lot's irrigation setup during the site walk and design accordingly." },
+      { question: "Do you renovate pools in Arcadia's older homes?", answer: "Yes, pool renovation is common work for us in Arcadia, given the number of established homes with existing pools in the neighborhood." },
+      { question: "What's the typical lot size you're designing for in Arcadia?", answer: "Arcadia lots tend to be larger and more established than typical Phoenix subdivisions, which gives us more flexibility in layout." },
+      { question: "Do you handle City of Phoenix permitting for Arcadia projects?", answer: "Yes, we manage plan submittal and permitting through the City of Phoenix as part of construction." },
+    ],
+  },
+  "north-phoenix-pool-builder": {
+    intro: [
+      "North Phoenix covers a lot of ground — from newer master-planned communities near Desert Ridge to established desert foothill neighborhoods near North Mountain — so our approach here depends heavily on which part of North Phoenix your property is in.",
+      "We design pools and landscaping across that range, from clean, family-focused backyards in newer subdivisions to more dramatic desert-foothill lots with elevation change and natural rock outcroppings.",
+    ],
+    localNotes:
+      "Foothill properties near North Mountain and the Phoenix Mountains Preserve often have more dramatic terrain than the flatter subdivisions further from the preserve — we adjust our design approach based on which situation your property is in.",
+    whyHomeowners:
+      "North Phoenix's range of neighborhoods means no single design approach fits everyone — we design around your specific property and its terrain rather than a one-size-fits-all template.",
+    faqs: [
+      { question: "Do you design for foothill lots near North Mountain?", answer: "Yes, sloped and rocky foothill lots are common in parts of North Phoenix, and we design retaining, decking, and pool placement to work with that terrain." },
+      { question: "Can you work in newer North Phoenix communities like Desert Ridge?", answer: "Yes, we design for both newer master-planned communities and more established North Phoenix neighborhoods." },
+      { question: "What's the cost range for a pool project in North Phoenix?", answer: "Cost varies significantly based on lot terrain, size, and features. We'll provide a specific quote after the site walk." },
+      { question: "Do North Phoenix HOAs have design requirements?", answer: "Many newer communities do — we'll check specific HOA guidelines as part of project planning where applicable." },
+      { question: "Do you handle City of Phoenix permitting?", answer: "Yes, we manage plan submittal and permitting through the City of Phoenix as part of construction." },
+    ],
+  },
+  "cave-creek-pool-builder": {
+    intro: [
+      "Cave Creek keeps a rustic, high-desert character that's distinct from the master-planned suburbs closer to central Phoenix — larger lots, natural boulder outcroppings, and a real western-desert feel bordering the Tonto National Forest.",
+      "We design pools and landscaping in Cave Creek to lean into that setting rather than smoothing it over — working with existing boulders and natural desert vegetation instead of clearing the lot for a suburban-style yard.",
+    ],
+    localNotes:
+      "Cave Creek's larger, often irregular lots and rockier high-desert terrain call for a different design approach than flatter suburban subdivisions — grading, retaining, and pool placement all get evaluated on a site-by-site basis.",
+    whyHomeowners:
+      "Cave Creek homeowners typically chose the area for its rustic, natural desert character — we design pools and landscaping that enhance that setting rather than fighting it with an overly manicured look.",
+    faqs: [
+      { question: "Do you design around existing boulders and natural terrain in Cave Creek?", answer: "Yes, this is one of the defining features of Cave Creek properties, and we design pool and landscape placement to work with existing rock formations rather than removing them." },
+      { question: "Are Cave Creek lots typically larger than in other East Valley suburbs?", answer: "Yes, larger and often more irregular lots are common in Cave Creek, which gives us more design flexibility but also requires more careful site planning." },
+      { question: "Do you handle Maricopa County or Town of Cave Creek permitting?", answer: "Yes, we manage the appropriate permitting process depending on whether your property falls within town limits or the surrounding county area." },
+      { question: "What landscaping fits Cave Creek's high-desert character best?", answer: "Native high-desert plants and materials that echo the surrounding natural terrain typically fit best, rather than a manicured suburban plant palette." },
+      { question: "Can you build a pool on a sloped or rocky Cave Creek lot?", answer: "Yes, we regularly design for sloped and rocky terrain in this area, adjusting excavation and retaining approach to the specific site." },
+    ],
+  },
+  "ahwatukee-pool-builder": {
+    intro: [
+      "Ahwatukee sits at the base of South Mountain, and its established, family-focused neighborhoods and golf communities give us a setting that's part suburban planning, part desert-foothill backdrop.",
+      "We design pools and outdoor living spaces in Ahwatukee around that dual character — family-friendly layouts that still take advantage of the South Mountain views many properties here have.",
+    ],
+    localNotes:
+      "Properties closer to South Mountain Park often have more usable elevation and view opportunities than the flatter sections of Ahwatukee further from the preserve — we assess this during the site walk.",
+    whyHomeowners:
+      "Ahwatukee families are often planning outdoor spaces around long-term, everyday use — we design pools and landscaping meant to hold up to daily family life, not just look good for photos.",
+    faqs: [
+      { question: "Do you design pools that take advantage of South Mountain views?", answer: "Yes, where a property has usable sightlines toward South Mountain, we position the pool and seating areas to make the most of that view." },
+      { question: "Are there HOA guidelines to consider in Ahwatukee communities?", answer: "Many Ahwatukee neighborhoods have HOA design review — we'll prepare submittals to meet those requirements where applicable." },
+      { question: "What's the typical cost for a family-focused pool project in Ahwatukee?", answer: "Cost depends on size and features. We'll provide a detailed quote after understanding your yard and family's needs." },
+      { question: "Do you design pools with safety features for young kids?", answer: "Yes, sun ledges, clear sightlines from the house, and safety-conscious layouts are common priorities we design around for families." },
+      { question: "Do you handle City of Phoenix permitting for Ahwatukee projects?", answer: "Yes, Ahwatukee falls within Phoenix city limits, and we manage plan submittal and permitting accordingly." },
+    ],
+  },
+  "superstition-area-pool-builder": {
+    intro: [
+      "The Superstition Mountains give the whole area east of Apache Junction and Gold Canyon one of the most dramatic natural backdrops in the Phoenix metro — a lot of homeowners out here chose their property specifically for that view, and we design around it accordingly.",
+      "Whether it's a full-time residence or a weekend property near the trailheads and Lost Dutchman State Park, we design pools and outdoor living spaces that put the mountain backdrop front and center rather than treating it as an afterthought.",
+    ],
+    localNotes:
+      "Properties throughout the Superstition area tend to have larger desert lots and more dramatic natural terrain than closer-in suburbs, which gives us more room for freeform pool shapes and landscaping that echoes the surrounding desert.",
+    whyHomeowners:
+      "Homeowners in the Superstition area are often drawn to the region for its natural desert setting and recreational access — we design outdoor spaces that feel like a genuine extension of that landscape rather than a suburban yard dropped into the desert.",
+    faqs: [
+      { question: "Do you design pools that frame views of the Superstition Mountains?", answer: "Yes, positioning the pool and seating areas to take advantage of the mountain backdrop is a standard part of our design process in this area." },
+      { question: "Do you work with weekend or part-time residence owners near the Superstitions?", answer: "Yes, we design with low-maintenance features and automated equipment where appropriate for owners who aren't on-site year-round." },
+      { question: "What soil and terrain considerations come up in this area?", answer: "Rocky, well-draining soil and larger, often irregular lots are common — we account for this during excavation and structural planning." },
+      { question: "How much does a custom pool cost in the Superstition area?", answer: "Cost depends on lot conditions, size, and features. We'll provide a specific quote after the site walk." },
+      { question: "Do you handle Pinal or Maricopa County permitting depending on the property's location?", answer: "Yes, we manage permitting through the appropriate county or municipality based on your property's exact location." },
+    ],
+  },
+  "maricopa-pool-builder": {
+    intro: [
+      "Maricopa has grown rapidly as a Pinal County community with newer master-planned neighborhoods like Rancho El Dorado and Province, alongside a broader agricultural heritage that's steadily giving way to suburban development.",
+      "We design pools and landscaping across that mix — from newer-construction backyards starting as bare dirt to larger properties that still reflect the area's agricultural history.",
+    ],
+    localNotes:
+      "As one of the fastest-growing communities south of the Valley, Maricopa has a lot of new construction with builder-grade backyards — we regularly design the full landscape and hardscape plan from scratch for these homes.",
+    whyHomeowners:
+      "Maricopa homeowners are often looking for an outdoor space that stands out in a community where most backyards started from the same builder template — we design something that doesn't look like everyone else's.",
+    faqs: [
+      { question: "Do you design for newer master-planned communities in Maricopa?", answer: "Yes, communities like Rancho El Dorado and Province are common project locations for us, typically starting from a builder-grade backyard." },
+      { question: "What's the permitting process like in Maricopa?", answer: "We manage plan submittal and permitting through the City of Maricopa as part of construction." },
+      { question: "Can you work with larger agricultural-zoned properties near Maricopa?", answer: "Yes, we've designed for a range of property types in the area — we'll assess specific zoning and setback requirements during the site visit." },
+      { question: "How much does a custom pool cost in Maricopa?", answer: "Cost depends on size, materials, and features. We'll provide a detailed quote after understanding your design goals." },
+      { question: "How long is the commute for your team to reach Maricopa projects?", answer: "We regularly work in Maricopa as part of our broader Pinal County service area and factor travel into project scheduling." },
+    ],
+  },
+  "coolidge-pool-builder": {
+    intro: [
+      "Coolidge is one of the quieter, more established communities in Pinal County, with deep agricultural roots and a slower pace of growth than neighboring Maricopa or San Tan Valley — that often means larger, more affordable lots for custom outdoor living.",
+      "We design pools and landscaping in Coolidge for both long-established properties and the newer homes gradually filling in around the town's historic core.",
+    ],
+    localNotes:
+      "Coolidge's larger, often more affordable lots give homeowners room for a genuinely custom layout without the tighter constraints of a dense suburban subdivision.",
+    whyHomeowners:
+      "Coolidge homeowners often have more land to work with than in tighter Phoenix-area suburbs — we design layouts that take full advantage of that space rather than defaulting to a compact suburban footprint.",
+    faqs: [
+      { question: "Do you build pools on larger rural lots in Coolidge?", answer: "Yes, larger lots are common in Coolidge and give us more design flexibility for pool size, decking, and landscape layout." },
+      { question: "What's the permitting process like in Coolidge?", answer: "We manage plan submittal and permitting through the City of Coolidge or Pinal County, depending on your property's location, as part of construction." },
+      { question: "Can you design landscaping for an older, established Coolidge property?", answer: "Yes, we assess existing trees and landscaping during the site walk and design around what's worth preserving." },
+      { question: "How much does a custom pool cost in Coolidge?", answer: "Cost depends on size, materials, and features. We'll provide a detailed quote after understanding your design goals." },
+      { question: "Do you work with agricultural-zoned properties near Coolidge?", answer: "Yes, we've designed for a range of property types in the area, including larger acreage lots." },
+    ],
+  },
 };

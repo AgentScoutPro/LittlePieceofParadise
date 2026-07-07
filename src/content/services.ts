@@ -36,12 +36,12 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
   "custom-pool-construction": {
     overview: [
-      "Construction is where a design either holds up or falls apart. We manage excavation, plumbing, gunite or shotcrete shell work, decking, and finish coats under one team, so you're not coordinating between five different subcontractors.",
-      "We build for Arizona's soil and climate conditions specifically — proper steel reinforcement, expansion joints in decking, and finish materials selected to handle summer heat without degrading early.",
+      "Construction is where a design either holds up or falls apart. We coordinate every phase — excavation, plumbing, gunite or shotcrete shell work, decking, and finish coats — through our hand-selected network of licensed, insured, and bonded pool contractors, so you have one point of contact instead of managing five separate subcontractors yourself.",
+      "Every phase is planned for Arizona's soil and climate conditions specifically — proper steel reinforcement, expansion joints in decking, and finish materials selected to handle summer heat without degrading early.",
     ],
     benefits: [
-      "One point of contact from excavation through final walkthrough",
-      "Licensed, insured crews for every phase — structural, plumbing, electrical, and finish work",
+      "One point of contact from excavation through final walkthrough, even though multiple trades are involved",
+      "Every contractor in our network is licensed, insured, and bonded per Arizona requirements",
       "Construction scheduled around Arizona's weather windows to avoid unnecessary delays",
       "Clear milestone updates so you always know what phase your project is in",
     ],
@@ -52,7 +52,7 @@ export const serviceContent: Record<string, ServiceContent> = {
       { title: "Finish & startup", body: "Interior finish coat, equipment startup, water balancing, and a full walkthrough before you take over." },
     ],
     whyChooseUs:
-      "We manage construction as one continuous project rather than handing you off between separate design and build companies — the crew that builds your pool is accountable to the plan we designed together.",
+      "We stay involved as one continuous project rather than handing you off between a separate design company and a separate builder — the licensed contractors executing your build are working from the plan we designed together, with us managing the process end to end.",
     faqs: [
       { question: "How long does pool construction take in Arizona?", answer: "Most custom pool builds take 8 to 14 weeks from groundbreaking to final walkthrough, depending on complexity, permitting timelines, and weather." },
       { question: "What's the typical cost range for a custom pool build?", answer: "Costs vary widely based on size, materials, and features like spas or water features. We provide a detailed, itemized quote after the design is finalized so there are no surprise line items." },

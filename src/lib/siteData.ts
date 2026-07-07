@@ -48,7 +48,7 @@ export const services: ServiceEntry[] = [
     metaDescription:
       "Custom pool design in Arizona — geometric and freeform layouts, integrated spas, and travertine decking built for Arizona living.",
     intro: "Every pool starts as a design conversation, not a catalog page.",
-    heroImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85",
+    heroImage: "https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=2000&q=85",
   },
   {
     slug: "custom-pool-construction",
@@ -111,7 +111,7 @@ export const services: ServiceEntry[] = [
     metaDescription:
       "Premium travertine and paver hardscape installation for Arizona patios, walkways, and pool decks.",
     intro: "The hardscape is the foundation the rest of the design stands on.",
-    heroImage: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85",
+    heroImage: "https://images.unsplash.com/photo-1593282153762-a4c4eac7d9bc?auto=format&fit=crop&w=2000&q=85",
   },
   {
     slug: "water-features",
@@ -152,6 +152,14 @@ export const cities: CityEntry[] = [
   { slug: "apache-junction-pool-builder", cityName: "Apache Junction", region: "AZ" },
   { slug: "gold-canyon-pool-builder", cityName: "Gold Canyon", region: "AZ" },
   { slug: "casa-grande-pool-builder", cityName: "Casa Grande", region: "AZ" },
+  { slug: "paradise-valley-pool-builder", cityName: "Paradise Valley", region: "AZ" },
+  { slug: "arcadia-pool-builder", cityName: "Arcadia", region: "AZ" },
+  { slug: "north-phoenix-pool-builder", cityName: "North Phoenix", region: "AZ" },
+  { slug: "cave-creek-pool-builder", cityName: "Cave Creek", region: "AZ" },
+  { slug: "ahwatukee-pool-builder", cityName: "Ahwatukee", region: "AZ" },
+  { slug: "superstition-area-pool-builder", cityName: "Superstition Area", region: "AZ" },
+  { slug: "maricopa-pool-builder", cityName: "Maricopa", region: "AZ" },
+  { slug: "coolidge-pool-builder", cityName: "Coolidge", region: "AZ" },
 ];
 
 export const primaryNav = [
