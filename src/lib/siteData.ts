@@ -78,6 +78,15 @@ export const services: ServiceEntry[] = [
     heroImage: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2000&q=85",
   },
   {
+    slug: "pergolas-gazebos",
+    name: "Custom Pergolas & Gazebos",
+    shortName: "Pergolas & Gazebos",
+    metaDescription:
+      "Custom pergolas and gazebos for Arizona backyards, designed for shade, entertaining, and long term outdoor living.",
+    intro: "Shade structures designed around the way your yard actually gets used.",
+    heroImage: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2000&q=85",
+  },
+  {
     slug: "outdoor-kitchens",
     name: "Outdoor Kitchens",
     shortName: "Outdoor Kitchens",
@@ -88,11 +97,11 @@ export const services: ServiceEntry[] = [
   },
   {
     slug: "fire-features",
-    name: "Fire Features",
+    name: "Raised Patios & Fire Features",
     shortName: "Fire Features",
     metaDescription:
-      "Custom fire pits and fire bowls integrated into Arizona backyard landscapes for cool desert evenings.",
-    intro: "Fire features designed as part of the landscape, not an add-on.",
+      "Raised patios, custom fire pits, fireplaces, and fire bowls integrated into Arizona backyard landscapes.",
+    intro: "Fire features and patios designed as gathering places, not add ons.",
     heroImage: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2000&q=85",
   },
   {
@@ -115,10 +124,10 @@ export const services: ServiceEntry[] = [
   },
   {
     slug: "water-features",
-    name: "Water Features",
+    name: "Pondless Water Features",
     shortName: "Water Features",
     metaDescription:
-      "Custom water feature installation — waterfalls, pondless features, and pool water elements for Arizona backyards.",
+      "Pondless water features, waterfalls, and pool water elements designed for Arizona backyards.",
     intro: "The sound of moving water changes how a backyard feels.",
     heroImage: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2000&q=85",
   },
@@ -164,6 +173,7 @@ export const cities: CityEntry[] = [
 
 export const primaryNav = [
   { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
   { label: "Service Areas", href: "/service-areas" },
   { label: "Contact", href: "/contact" },

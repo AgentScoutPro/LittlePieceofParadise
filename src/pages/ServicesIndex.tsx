@@ -21,10 +21,14 @@ export default function ServicesIndex() {
         </nav>
         <div className="scene-content" style={{ paddingTop: 0 }}>
           <h1>Our <em>Services</em></h1>
+          <p className="scene-copy">
+            From custom landscape design through installation, every service starts with your style,
+            your goals, and how your family or business will actually use the space.
+          </p>
         </div>
       </section>
       <div className="page-content" style={{ width: "min(1100px, 100%)" }}>
-        <div className="index-grid" style={{ gridTemplateColumns: "repeat(3, minmax(0,1fr))" }}>
+        <div className="index-grid services-index-grid">
           {services.map((service) => (
             <Link className="index-card liquid-glass" to={`/services/${service.slug}`} key={service.slug}>
               <h3>{service.name}</h3>

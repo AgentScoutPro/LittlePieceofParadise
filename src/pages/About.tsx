@@ -3,7 +3,7 @@ import { ArrowRight, Quote } from "lucide-react";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema, faqSchema, personSchema } from "../lib/schema";
 import { site } from "../lib/siteData";
-import { approach, faqs, mission, ownerStory, processSteps, team, testimonials } from "../content/about";
+import { approach, designPrinciples, faqs, mission, ownerStory, processSteps, team, testimonials } from "../content/about";
 
 export default function About() {
   return (
@@ -38,6 +38,18 @@ export default function About() {
           {approach.map((para, i) => (
             <p className="body-copy" key={i}>{para}</p>
           ))}
+        </section>
+
+        <section aria-labelledby="principles-heading">
+          <h2 id="principles-heading" className="content-heading">What Makes the Design Yours</h2>
+          <div className="index-grid principles-grid">
+            {designPrinciples.map((principle) => (
+              <article className="index-card liquid-glass" key={principle.title}>
+                <h3>{principle.title}</h3>
+                <p>{principle.body}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section aria-labelledby="owner-heading">

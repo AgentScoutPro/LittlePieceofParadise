@@ -14,6 +14,21 @@ export const approach = [
   "We also think beyond the first project — many clients plan their outdoor space in stages, and we help map that out so today's install sets up tomorrow's addition instead of working against it.",
 ];
 
+export const designPrinciples = [
+  {
+    title: "Custom before trendy",
+    body: "AI tools and social feeds can be useful for inspiration, but your design should not look like the same backyard everyone else has seen online. We start with your home, your routines, and your wish list.",
+  },
+  {
+    title: "Every detail selected for you",
+    body: "Materials, plants, water features, seating areas, and finishes are chosen for your style, your family dynamics, and the way you want the finished space to feel.",
+  },
+  {
+    title: "Phased plans when needed",
+    body: "If the full vision needs to happen over time, we help plan the sequence so each step supports the next one instead of creating rework later.",
+  },
+];
+
 export const team =
   "No single company can do everything well, so we work with a vetted network of local landscapers, hardscape and concrete contractors, water feature specialists, pool contractors, electricians, and other trade professionals — each licensed, insured, and bonded under Arizona requirements. You get one point of contact managing a team of specialists, rather than a generalist crew stretched across trades they don't specialize in.";
 

@@ -115,6 +115,33 @@ export const serviceContent: Record<string, ServiceContent> = {
       { question: "How long does an outdoor living space project take?", answer: "Simple pergola or patio cover projects can take a few weeks; larger structures with integrated utilities take longer. We'll give you a specific timeline after design." },
     ],
   },
+  "pergolas-gazebos": {
+    overview: [
+      "A pergola or gazebo should feel like it belongs to the house and the landscape around it. We plan shade, seating, sightlines, and materials together so the structure looks intentional instead of added after the yard was already finished.",
+      "Each design is shaped around how you want to use the space, from quiet morning coffee to outdoor dinners, client entertaining, or a family friendly hangout that stays comfortable through Arizona evenings.",
+    ],
+    benefits: [
+      "Custom pergola and gazebo layouts designed for your yard, not a standard kit",
+      "Shade, airflow, and seating planned around Arizona sun exposure",
+      "Material selections chosen to complement your home and existing landscape",
+      "Lighting, fans, and future outdoor kitchen needs planned before construction begins",
+    ],
+    process: [
+      { title: "Use planning", body: "We talk through how the space will be used, who will gather there, and what kind of shade or privacy you need." },
+      { title: "Structure design", body: "Pergola, gazebo, or ramada concepts are matched to your home, yard layout, and budget." },
+      { title: "Finish planning", body: "We coordinate lighting, fans, seating, plants, and nearby hardscape so the space feels complete." },
+      { title: "Build coordination", body: "Licensed and insured trade professionals handle the structure and finishes with one point of contact guiding the project." },
+    ],
+    whyChooseUs:
+      "We treat shade structures as part of the whole backyard design. That means the pergola or gazebo connects to the patio, pool, kitchen, lighting, and planting plan instead of standing alone.",
+    faqs: [
+      { question: "Do you build both pergolas and gazebos?", answer: "Yes. We design custom pergolas, gazebos, ramadas, and covered patio structures depending on the look, shade level, and budget you want." },
+      { question: "Can a pergola be added to an existing patio?", answer: "Often yes. We inspect the current patio, footings, utilities, and drainage before recommending whether an addition or a fresh build makes more sense." },
+      { question: "Can lighting and fans be included?", answer: "Yes. Electrical planning can be included for lighting, fans, outlets, and future upgrades when the project scope calls for it." },
+      { question: "What materials work best in Arizona?", answer: "The right material depends on your home style and maintenance preferences. We walk through wood, metal, and finished structure options during design." },
+      { question: "Do pergolas or gazebos need permits?", answer: "Some structures require permits depending on size, attachment, and local rules. We help identify what applies to your project." },
+    ],
+  },
   "outdoor-kitchens": {
     overview: [
       "An outdoor kitchen has to handle real entertaining, not just a single grill against a wall. We design layouts with enough counter space, storage, and seating to actually host — built-in grills, prep stations, bar seating, and refrigeration, all planned around how your family entertains.",
@@ -144,26 +171,29 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
   "fire-features": {
     overview: [
-      "Fire features extend how long you can use your backyard on cool desert evenings, and they're one of the highest-impact additions for how a space feels at night. We design fire pits, fire bowls, and linear fireplaces as part of the landscape — positioned for sightlines from the house and integrated seating, not dropped in as an afterthought.",
-      "Gas and wood-burning options are both available, and we'll walk through the tradeoffs based on how you'll actually use the feature.",
+      "Raised patios and fire features extend how long you can use your backyard and give the whole space a natural place to gather. We design fire pits, fire bowls, fireplaces, and raised patio areas as part of the landscape, positioned for sightlines from the house, comfortable seating, and evening use.",
+      "Gas and wood burning options are both available, and we walk through the tradeoffs based on how you will actually use the feature. Patio height, drainage, steps, retaining edges, and surrounding hardscape are planned together so the finished space feels deliberate.",
     ],
     benefits: [
-      "Positioned within the landscape for sightlines and seating, not just wherever there's open space",
-      "Gas or wood-burning options based on how you'll use it",
-      "Integrated with existing patios, pools, or seating areas",
+      "Raised patios planned for views, drainage, steps, and comfortable furniture layouts",
+      "Fireplaces, fire pits, and fire bowls positioned for sightlines and seating",
+      "Gas or wood burning options based on how you will use it",
+      "Integrated with existing patios, pools, kitchens, or landscape areas",
       "Safe clearance and material choices appropriate for Arizona's dry conditions",
     ],
     process: [
-      { title: "Placement & style", body: "We determine the best location based on sightlines, prevailing wind, and how the seating area will be arranged." },
+      { title: "Placement & style", body: "We determine the best location based on sightlines, wind, grade changes, and how the seating area will be arranged." },
+      { title: "Patio and hardscape planning", body: "Raised patio edges, steps, retaining elements, and surrounding surfaces are planned before construction begins." },
       { title: "Gas line or fuel planning", body: "For gas features, lines are planned and permitted as part of the build." },
       { title: "Construction", body: "Fire feature construction integrated with surrounding hardscape or landscaping." },
       { title: "Safety & finish check", body: "Final clearance and safety check before handoff." },
     ],
     whyChooseUs:
-      "We treat fire features as part of the overall landscape design — positioned and built to match the rest of your outdoor space rather than sold as a standalone kit.",
+      "We treat raised patios and fire features as part of the overall landscape design, positioned and built to match the rest of your outdoor space rather than sold as standalone kits.",
     faqs: [
       { question: "Gas or wood-burning — which is better for Arizona backyards?", answer: "Gas features are more convenient and have fewer restrictions during burn bans, while wood-burning offers a more traditional experience. We'll help you weigh the tradeoffs based on how often you'll use it." },
       { question: "Do fire features require a permit?", answer: "Gas fire features typically require permitting for the gas line. We handle this as part of the project." },
+      { question: "Can you create a raised patio around a fire feature?", answer: "Yes. Raised patios, seat walls, steps, and fire features can be designed together so the gathering area feels complete and safe." },
       { question: "How close can a fire feature be to seating or structures?", answer: "Clearance requirements depend on the feature type and local code — we design to those requirements as part of the layout." },
       { question: "Can you add a fire feature to an existing patio?", answer: "In most cases, yes. We'll assess your existing hardscape and utility access during the site visit." },
       { question: "What's the cost range for a custom fire feature?", answer: "Cost varies based on size, materials, and whether it's gas or wood-burning. We'll provide a specific quote after discussing your preferences." },
@@ -225,8 +255,8 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
   "water-features": {
     overview: [
-      "Moving water changes how a backyard feels — the sound alone makes a space feel cooler and more private. We design waterfalls, pondless features, and pool-integrated water elements that fit naturally into the landscape rather than reading as a separate installed object.",
-      "Every water feature is designed with Arizona's evaporation and water quality considerations in mind, including recirculation systems that keep maintenance manageable.",
+      "Moving water changes how a backyard feels. The sound alone makes a space feel cooler, calmer, and more private. We design pondless water features, waterfalls, and pool integrated water elements that fit naturally into the landscape rather than reading as a separate installed object.",
+      "Pondless systems are especially practical for Arizona because the water recirculates through a hidden reservoir instead of sitting in an open pond. Every feature is planned with evaporation, water quality, maintenance, and planting around the feature in mind.",
     ],
     benefits: [
       "Designed to integrate naturally into the landscape, not as a standalone add-on",

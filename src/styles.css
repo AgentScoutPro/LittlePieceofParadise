@@ -991,6 +991,11 @@ form button {
   margin-top: 16px;
 }
 
+.services-index-grid,
+.principles-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .index-card {
   border-radius: 18px;
   padding: 22px;
@@ -1189,6 +1194,11 @@ form button {
   .why-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .services-index-grid,
+  .principles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 720px) {
@@ -1257,6 +1267,11 @@ form button {
   }
 
   .index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-index-grid,
+  .principles-grid {
     grid-template-columns: 1fr;
   }
 
