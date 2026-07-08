@@ -154,6 +154,8 @@ export default function Home() {
       <HeroScrollVideo />
       <TransformationScrollVideo />
       <PoolDesignScrollVideo />
+      <WhyUs />
+      <ServiceAreasTeaser />
       {showcaseScenes.filter((scene) => scene.id !== "pool-design").map((scene) => (
         <ShowcaseScene
           key={scene.id}
@@ -167,8 +169,6 @@ export default function Home() {
           dark={scene.dark}
         />
       ))}
-      <WhyUs />
-      <ServiceAreasTeaser />
       <FinalCta />
     </main>
   );
