@@ -81,6 +81,74 @@ function ShowcaseScene({ id, eyebrow, headlinePrefix, headlineEmphasis, copy, im
 
 const whyUsIcons = [Sparkles, Medal, Sprout, Users, Flame];
 
+function InteractiveWhyCard({ children }: { children: React.ReactNode }) {
+  const [style, setStyle] = React.useState<React.CSSProperties>({});
+  const [ripples, setRipples] = React.useState<Array<{ id: number; x: number; y: number }>>([]);
+
+  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    if (event.pointerType === "touch") return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -7;
+    const rotateY = ((x - centerX) / centerX) * 7;
+    const magnetX = (x - centerX) * 0.035;
+    const magnetY = (y - centerY) * 0.035;
+
+    setStyle({
+      "--mouse-x": `${x}px`,
+      "--mouse-y": `${y}px`,
+      transform: `perspective(900px) translate3d(${magnetX}px, ${magnetY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+    } as React.CSSProperties);
+  }
+
+  function handlePointerLeave() {
+    setStyle({
+      transform: "perspective(900px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)",
+    });
+  }
+
+  function handleClick(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const ripple = {
+      id: Date.now(),
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+    };
+
+    setRipples((current) => [...current, ripple]);
+    window.setTimeout(() => {
+      setRipples((current) => current.filter((item) => item.id !== ripple.id));
+    }, 850);
+  }
+
+  return (
+    <div
+      className="why-card magic-why-card liquid-glass"
+      style={style}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      onClick={handleClick}
+    >
+      <span className="why-card-spotlight" aria-hidden="true" />
+      <span className="why-card-border-glow" aria-hidden="true" />
+      <span className="why-card-stars" aria-hidden="true" />
+      {children}
+      {ripples.map((ripple) => (
+        <span
+          className="why-card-ripple"
+          style={{ left: ripple.x, top: ripple.y }}
+          key={ripple.id}
+          aria-hidden="true"
+        />
+      ))}
+    </div>
+  );
+}
+
 function WhyUs() {
   return (
     <section className="why-us" id="why-us">
@@ -95,10 +163,12 @@ function WhyUs() {
           {whyUs.items.map((item, i) => {
             const Icon = whyUsIcons[i % whyUsIcons.length];
             return (
-              <Reveal className="why-card liquid-glass" delay={i * 0.08} key={item.title}>
-                <span className="icon-pill liquid-glass"><Icon size={20} /></span>
-                <h4>{item.title}</h4>
-                <p>{item.body}</p>
+              <Reveal delay={i * 0.08} key={item.title}>
+                <InteractiveWhyCard>
+                  <span className="icon-pill liquid-glass"><Icon size={20} /></span>
+                  <h4>{item.title}</h4>
+                  <p>{item.body}</p>
+                </InteractiveWhyCard>
               </Reveal>
             );
           })}
