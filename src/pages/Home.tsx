@@ -9,16 +9,11 @@ import { breadcrumbSchema } from "../lib/schema";
 import { cities, site } from "../lib/siteData";
 import { finalCta, serviceAreasTeaser, showcaseScenes, whyUs } from "../content/home";
 
-/**
- * PLACEHOLDER MEDIA for scenes below the hero — swap each src for the
- * rendered Image Board asset once generated. The hero itself now uses the
- * real scroll-scrubbed blueprint-to-paradise video (see HeroScrollVideo).
- */
 const media = {
-  outdoorLiving: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=85",
+  outdoorLiving: "/images/home/outdoor-living-patio.jpg",
   family: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2400&q=85",
-  landscape: "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=2400&q=85",
-  night: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=85",
+  landscape: "/images/home/landscape-design-desert.jpg",
+  night: "/images/home/after-dark-pool.jpg",
 };
 
 const showcaseImages: Record<string, string> = {
