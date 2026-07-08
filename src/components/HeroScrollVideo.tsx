@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Sprout } from "lucide-react";
 import { hero } from "../content/home";
 import { usePrefersReducedMotion, useResponsiveRunway, useScrollScrubbedVideo } from "./useScrollScrubbedVideo";
 
@@ -18,11 +17,11 @@ function ReducedMotionHero() {
       <div className="scene-content centered">
         <p className="scene-eyebrow">{hero.eyebrow}</p>
         <h1 id="hero-title">
-          {hero.headlinePrefix}
-          <em>{hero.headlineEmphasis}</em>
+          <span>{hero.headlinePrefix}</span>
+          <em className="headline-line">{hero.headlineEmphasis}</em>
         </h1>
         <p className="scene-copy" style={{ marginInline: "auto" }}>{hero.copy}</p>
-        <div className="scene-actions">
+        <div className="scene-actions hero-actions">
           <a className="primary liquid-glass" href="/contact">
             {hero.primaryCta} <ArrowRight size={18} />
           </a>
@@ -65,21 +64,16 @@ function ScrubbedHero() {
         <motion.div className="scene-content centered" style={{ opacity: copyOpacity, y: copyY }}>
           <p className="scene-eyebrow">{hero.eyebrow}</p>
           <h1 id="hero-title">
-            {hero.headlinePrefix}
-            <em>{hero.headlineEmphasis}</em>
+            <span>{hero.headlinePrefix}</span>
+            <em className="headline-line">{hero.headlineEmphasis}</em>
           </h1>
           <p className="scene-copy" style={{ marginInline: "auto" }}>{hero.copy}</p>
-          <div className="scene-actions">
+          <div className="scene-actions hero-actions">
             <a className="primary liquid-glass" href="/contact">
               {hero.primaryCta} <ArrowRight size={18} />
             </a>
             <a className="text-link" href="/gallery">{hero.secondaryCta}</a>
           </div>
-        </motion.div>
-        <motion.div className="location-pill liquid-glass" style={{ opacity: copyOpacity }}>
-          <Sprout size={26} />
-          <span>{hero.locationEyebrow}</span>
-          <strong>{hero.locationCopy}</strong>
         </motion.div>
       </div>
     </div>

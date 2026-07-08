@@ -7,20 +7,18 @@
 
 export const hero = {
   eyebrow: "Custom Pool & Landscape Design · Arizona",
-  headlinePrefix: "Create Your Own ",
+  headlinePrefix: "Create Your Own",
   headlineEmphasis: "Little Piece of Paradise",
-  copy: "Custom pools, luxury landscaping, and outdoor living spaces designed for the way Arizona families actually live outside — from the first sketch to the final walkthrough.",
+  copy: "Custom pools, luxury landscaping, and outdoor living spaces designed for the way Arizona families actually live outside, from the first sketch to the final walkthrough.",
   primaryCta: "Request Free Design Consultation",
   secondaryCta: "View Our Work",
-  locationEyebrow: "Proudly serving",
-  locationCopy: "Scottsdale, Gilbert, Chandler & Greater Phoenix",
 };
 
 export const transformation = {
   eyebrow: "The Transformation",
-  headlinePrefix: "From bare dirt to ",
+  headlinePrefix: "From bare dirt to",
   headlineEmphasis: "the backyard everyone remembers",
-  copy: "Every Little Piece of Paradise starts the same way — an empty lot, an honest conversation about how you actually want to live outside, and a plan built to get you there without shortcuts.",
+  copy: "Every Little Piece of Paradise starts the same way: an empty lot, an honest conversation about how you actually want to live outside, and a plan built to get you there without shortcuts.",
   frames: [
     { label: "Empty Yard" },
     { label: "Construction" },
@@ -32,9 +30,9 @@ export const showcaseScenes = [
   {
     id: "pool-design",
     eyebrow: "Custom Pool Design",
-    headlinePrefix: "Water, ",
+    headlinePrefix: "Water",
     headlineEmphasis: "engineered like art.",
-    copy: "Every pool is drawn around your yard, not pulled from a catalog — integrated spas, sun ledges, and water features engineered for Arizona heat, finished in travertine that stays cool enough to walk barefoot in July.",
+    copy: "Every pool is drawn around your yard, not pulled from a catalog. Integrated spas, sun ledges, and water features are engineered for Arizona heat and finished in travertine that stays cool enough to walk barefoot in July.",
     alt: "Luxury geometric custom swimming pool with travertine decking",
   },
   {
@@ -42,7 +40,7 @@ export const showcaseScenes = [
     eyebrow: "Outdoor Living",
     headlinePrefix: "Where the evening ",
     headlineEmphasis: "actually happens.",
-    copy: "A covered patio, a fireplace that catches the last light, an outdoor kitchen built for real entertaining — designed for the hours between dinner and the kids finally going to bed.",
+    copy: "A covered patio, a fireplace that catches the last light, and an outdoor kitchen built for real entertaining. Designed for the hours between dinner and the kids finally going to bed.",
     alt: "Luxury covered patio with outdoor kitchen and fireplace",
   },
   {
@@ -56,17 +54,17 @@ export const showcaseScenes = [
   {
     id: "landscape-design",
     eyebrow: "Landscape Design",
-    headlinePrefix: "Desert-smart. ",
-    headlineEmphasis: "Award-worthy.",
-    copy: "Mature palms, native planting chosen for how it'll look in five years — not just on install day — and lighting layered to make the whole property feel finished after dark.",
-    alt: "Award-winning Arizona desert landscape design with mature palms and lighting",
+    headlinePrefix: "Desert smart. ",
+    headlineEmphasis: "Award worthy.",
+    copy: "Mature palms, native planting chosen for how it will look in five years, not just on install day, and lighting layered to make the whole property feel finished after dark.",
+    alt: "Award winning Arizona desert landscape design with mature palms and lighting",
   },
   {
     id: "night-mode",
     eyebrow: "After Dark",
     headlinePrefix: "Paradise, ",
     headlineEmphasis: "after dark.",
-    copy: "The moment the sun drops, landscape lighting and fire features take over — so the backyard you fell in love with at noon is just as striking at nine at night.",
+    copy: "The moment the sun drops, landscape lighting and fire features take over, so the backyard you fell in love with at noon is just as striking at nine at night.",
     alt: "Luxury Arizona backyard illuminated at twilight with landscape lighting and fire features",
     dark: true,
   },
@@ -76,11 +74,11 @@ export const whyUs = {
   label: "Why Homeowners Choose Us",
   headline: "We build the place your family never wants to leave.",
   items: [
-    { title: "Custom Design", body: "No templates — every space is designed around how your family lives outside." },
-    { title: "Premium Craftsmanship", body: "Licensed contractors and boutique-level attention on every build." },
-    { title: "Arizona Expertise", body: "Desert-smart planting and materials built for Arizona heat and sun." },
-    { title: "Family-Focused", body: "Spaces designed for gathering, relaxing, and everyday outdoor living." },
-    { title: "One Team, Start to Finish", body: "From concept through final walkthrough — a single point of contact." },
+    { title: "Custom Design", body: "No templates. Every space is designed around how your family lives outside." },
+    { title: "Premium Craftsmanship", body: "Licensed contractors and boutique level attention on every build." },
+    { title: "Arizona Expertise", body: "Desert smart planting and materials built for Arizona heat and sun." },
+    { title: "Family Focused", body: "Spaces designed for gathering, relaxing, and everyday outdoor living." },
+    { title: "One Team, Start to Finish", body: "From concept through final walkthrough with a single point of contact." },
   ],
 };
 

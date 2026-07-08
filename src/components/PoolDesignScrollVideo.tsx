@@ -23,7 +23,7 @@ function ReducedMotionPoolDesign() {
       <div className="scene-content">
         <p className="scene-eyebrow">{copy.eyebrow}</p>
         <h2>
-          {copy.headlinePrefix}
+          {copy.headlinePrefix}{" "}
           <em>{copy.headlineEmphasis}</em>
         </h2>
         <p className="scene-copy">{copy.copy}</p>
@@ -68,7 +68,7 @@ function ScrubbedPoolDesign() {
         <motion.div className="scene-content" style={{ opacity: copyOpacity, y: copyY }}>
           <p className="scene-eyebrow">{copy.eyebrow}</p>
           <h2>
-            {copy.headlinePrefix}
+            {copy.headlinePrefix}{" "}
             <em>{copy.headlineEmphasis}</em>
           </h2>
           <p className="scene-copy">{copy.copy}</p>

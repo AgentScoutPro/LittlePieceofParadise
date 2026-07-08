@@ -425,6 +425,10 @@ em {
   max-width: 20ch;
 }
 
+.headline-line {
+  display: block;
+}
+
 .scene-content.centered h1,
 .scene-content.centered h2 {
   margin-inline: auto;
@@ -452,6 +456,10 @@ em {
   align-items: center;
   gap: 22px;
   margin-top: 30px;
+}
+
+.hero-actions {
+  margin-top: clamp(42px, 5vw, 62px);
 }
 
 .scene-content.centered .scene-actions {

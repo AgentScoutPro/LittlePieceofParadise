@@ -21,8 +21,8 @@ function ReducedMotionTransformation() {
       <div className="scene-content">
         <p className="scene-eyebrow">{transformation.eyebrow}</p>
         <h2 id="transform-title">
-          {transformation.headlinePrefix}
-          <em>{transformation.headlineEmphasis}</em>
+          <span>{transformation.headlinePrefix}</span>
+          <em className="headline-line">{transformation.headlineEmphasis}</em>
         </h2>
         <p className="scene-copy">{transformation.copy}</p>
       </div>
@@ -80,8 +80,8 @@ function ScrubbedTransformation() {
         <motion.div className="scene-content" style={{ opacity: copyOpacity, y: copyY }}>
           <p className="scene-eyebrow">{transformation.eyebrow}</p>
           <h2 id="transform-title">
-            {transformation.headlinePrefix}
-            <em>{transformation.headlineEmphasis}</em>
+            <span>{transformation.headlinePrefix}</span>
+            <em className="headline-line">{transformation.headlineEmphasis}</em>
           </h2>
           <p className="scene-copy">{transformation.copy}</p>
         </motion.div>
