@@ -2,10 +2,11 @@ import React from "react";
 import { ArrowRight, Flame, Medal, Sparkles, Sprout, Users } from "lucide-react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import HeroScrollVideo from "../components/HeroScrollVideo";
+import TransformationScrollVideo from "../components/TransformationScrollVideo";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema } from "../lib/schema";
 import { cities, site } from "../lib/siteData";
-import { finalCta, serviceAreasTeaser, showcaseScenes, transformation, whyUs } from "../content/home";
+import { finalCta, serviceAreasTeaser, showcaseScenes, whyUs } from "../content/home";
 
 /**
  * PLACEHOLDER MEDIA for scenes below the hero — swap each src for the
@@ -13,9 +14,6 @@ import { finalCta, serviceAreasTeaser, showcaseScenes, transformation, whyUs } f
  * real scroll-scrubbed blueprint-to-paradise video (see HeroScrollVideo).
  */
 const media = {
-  emptyYard: "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=1200&q=85",
-  construction: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85",
-  paradiseFrame: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=85",
   pool: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2400&q=85",
   outdoorLiving: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=85",
   family: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2400&q=85",
@@ -58,30 +56,7 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function SceneTransformation() {
-  return (
-    <section className="scene" style={{ minHeight: "auto", background: "var(--near-black)" }} aria-labelledby="transform-title">
-      <div className="transform-track">
-        <Reveal>
-          <p className="scene-eyebrow">{transformation.eyebrow}</p>
-          <h2 id="transform-title">
-            {transformation.headlinePrefix}
-            <em>{transformation.headlineEmphasis}</em>
-          </h2>
-          <p className="scene-copy">{transformation.copy}</p>
-        </Reveal>
-        <div className="transform-frames">
-          {[media.emptyYard, media.construction, media.paradiseFrame].map((src, i) => (
-            <Reveal className="transform-frame" delay={i * 0.12} key={transformation.frames[i].label}>
-              <img src={src} alt={`${transformation.frames[i].label} stage of an Arizona backyard transformation`} />
-              <span className="frame-label">{transformation.frames[i].label}</span>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 function ShowcaseScene({ id, eyebrow, headlinePrefix, headlineEmphasis, copy, image, alt, dark = false }: { id: string; eyebrow: string; headlinePrefix: string; headlineEmphasis: string; copy: string; image: string; alt: string; dark?: boolean }) {
   return (
@@ -110,7 +85,7 @@ function WhyUs() {
       <div className="why-us-inner">
         <Reveal>
           <p className="section-label">{whyUs.label}</p>
-          <h2 style={{ fontFamily: "var(--font-headline)", fontSize: "clamp(1.9rem,4vw,3rem)", color: "#fdfaf4", maxWidth: "18ch" }}>
+          <h2 style={{ fontFamily: "var(--font-head)", fontSize: "clamp(1.9rem,4vw,3rem)", color: "#fdfaf4", maxWidth: "18ch" }}>
             {whyUs.headline}
           </h2>
         </Reveal>
@@ -178,7 +153,7 @@ export default function Home() {
         schema={breadcrumbSchema([{ name: "Home", path: "/" }])}
       />
       <HeroScrollVideo />
-      <SceneTransformation />
+      <TransformationScrollVideo />
       {showcaseScenes.map((scene) => (
         <ShowcaseScene
           key={scene.id}

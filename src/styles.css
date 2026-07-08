@@ -548,10 +548,7 @@ em {
   object-fit: cover;
 }
 
-.transform-frame .frame-label {
-  position: absolute;
-  left: 14px;
-  bottom: 14px;
+.frame-label {
   font-family: var(--font-head);
   font-size: 0.62rem;
   font-weight: 700;
@@ -561,6 +558,12 @@ em {
   background: rgba(20, 18, 15, 0.55);
   padding: 6px 12px;
   border-radius: 999px;
+}
+
+.transform-frame .frame-label {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
 }
 
 /* ==========================================================================
