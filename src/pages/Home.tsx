@@ -58,6 +58,8 @@ function ParallaxImage({ src, alt }: { src: string; alt: string }) {
 
 
 function ShowcaseScene({ id, eyebrow, headlinePrefix, headlineEmphasis, copy, image, alt, dark = false }: { id: string; eyebrow: string; headlinePrefix: string; headlineEmphasis: string; copy: string; image: string; alt: string; dark?: boolean }) {
+  const forceEmphasisLine = id === "outdoor-living" || id === "landscape-design";
+
   return (
     <section className="scene" id={id} aria-label={eyebrow}>
       <ParallaxImage src={image} alt={alt} />
@@ -67,7 +69,8 @@ function ShowcaseScene({ id, eyebrow, headlinePrefix, headlineEmphasis, copy, im
           <p className="scene-eyebrow">{eyebrow}</p>
           <h2>
             {headlinePrefix}
-            <em>{headlineEmphasis}</em>
+            {forceEmphasisLine ? " " : ""}
+            <em className={forceEmphasisLine ? "headline-line" : undefined}>{headlineEmphasis}</em>
           </h2>
           <p className="scene-copy">{copy}</p>
         </Reveal>
@@ -156,7 +159,7 @@ export default function Home() {
       <PoolDesignScrollVideo />
       <WhyUs />
       <ServiceAreasTeaser />
-      {showcaseScenes.filter((scene) => scene.id !== "pool-design").map((scene) => (
+      {showcaseScenes.filter((scene) => !["pool-design", "family"].includes(scene.id)).map((scene) => (
         <ShowcaseScene
           key={scene.id}
           id={scene.id}

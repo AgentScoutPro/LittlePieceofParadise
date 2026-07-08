@@ -38,10 +38,11 @@ export const showcaseScenes = [
   {
     id: "outdoor-living",
     eyebrow: "Outdoor Living",
-    headlinePrefix: "Where the evening ",
+    headlinePrefix: "Where the evening",
     headlineEmphasis: "actually happens.",
     copy: "A covered patio, a fireplace that catches the last light, and an outdoor kitchen built for real entertaining. Designed for the hours between dinner and the kids finally going to bed.",
     alt: "Luxury covered patio with outdoor kitchen and fireplace",
+    imagePrompt: "Luxury covered patio with outdoor kitchen, stone fireplace, custom seating area, integrated landscape design, evening lighting, Arizona luxury backyard retreat, resort-quality craftsmanship, cinematic architectural photography",
   },
   {
     id: "family",
@@ -54,18 +55,20 @@ export const showcaseScenes = [
   {
     id: "landscape-design",
     eyebrow: "Landscape Design",
-    headlinePrefix: "Desert smart. ",
+    headlinePrefix: "Desert smart.",
     headlineEmphasis: "Award worthy.",
     copy: "Mature palms, native planting chosen for how it will look in five years, not just on install day, and lighting layered to make the whole property feel finished after dark.",
     alt: "Award winning Arizona desert landscape design with mature palms and lighting",
+    imagePrompt: "Professionally designed desert luxury landscape, mature palms, lighting, stone pathways, decorative boulders, drought-conscious luxury landscaping, Arizona outdoor paradise, award-winning landscape architecture",
   },
   {
     id: "night-mode",
     eyebrow: "After Dark",
-    headlinePrefix: "Paradise, ",
+    headlinePrefix: "Paradise ",
     headlineEmphasis: "after dark.",
     copy: "The moment the sun drops, landscape lighting and fire features take over, so the backyard you fell in love with at noon is just as striking at nine at night.",
     alt: "Luxury Arizona backyard illuminated at twilight with landscape lighting and fire features",
+    imagePrompt: "Luxury backyard illuminated at twilight, custom pool glowing blue, landscape lighting throughout property, fire bowls reflecting on water, resort atmosphere, ultra realistic luxury architectural photography",
     dark: true,
   },
 ];
