@@ -1091,6 +1091,23 @@ form button {
 }
 
 @media (max-width: 640px) {
+  .nav {
+    width: min(100% - 24px, 420px);
+    padding: 10px 12px 10px 18px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand strong {
+    font-size: 1.32rem;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
   .location-pill {
     display: none;
   }

@@ -3,6 +3,7 @@ import { ArrowRight, Flame, Medal, Sparkles, Sprout, Users } from "lucide-react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import HeroScrollVideo from "../components/HeroScrollVideo";
 import TransformationScrollVideo from "../components/TransformationScrollVideo";
+import PoolDesignScrollVideo from "../components/PoolDesignScrollVideo";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema } from "../lib/schema";
 import { cities, site } from "../lib/siteData";
@@ -14,7 +15,6 @@ import { finalCta, serviceAreasTeaser, showcaseScenes, whyUs } from "../content/
  * real scroll-scrubbed blueprint-to-paradise video (see HeroScrollVideo).
  */
 const media = {
-  pool: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2400&q=85",
   outdoorLiving: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=85",
   family: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2400&q=85",
   landscape: "https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=2400&q=85",
@@ -22,7 +22,6 @@ const media = {
 };
 
 const showcaseImages: Record<string, string> = {
-  "pool-design": media.pool,
   "outdoor-living": media.outdoorLiving,
   family: media.family,
   "landscape-design": media.landscape,
@@ -154,7 +153,8 @@ export default function Home() {
       />
       <HeroScrollVideo />
       <TransformationScrollVideo />
-      {showcaseScenes.map((scene) => (
+      <PoolDesignScrollVideo />
+      {showcaseScenes.filter((scene) => scene.id !== "pool-design").map((scene) => (
         <ShowcaseScene
           key={scene.id}
           id={scene.id}
