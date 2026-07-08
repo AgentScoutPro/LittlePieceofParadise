@@ -6,10 +6,10 @@
  */
 
 export const hero = {
-  eyebrow: "An Arizona Outdoor Living Studio",
+  eyebrow: "Custom Pool & Landscape Design · Arizona",
   headlinePrefix: "Create Your Own ",
   headlineEmphasis: "Little Piece of Paradise",
-  copy: "Custom pools, layered landscape lighting, and outdoor rooms built for golden hour — designed so leaving the house stops being the plan.",
+  copy: "Custom pools, luxury landscaping, and outdoor living spaces designed for the way Arizona families actually live outside — from the first sketch to the final walkthrough.",
   primaryCta: "Request Free Design Consultation",
   secondaryCta: "View Our Work",
   locationEyebrow: "Proudly serving",
