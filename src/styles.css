@@ -1177,6 +1177,175 @@ form button {
 }
 
 /* ==========================================================================
+   REVIEWS (homepage)
+   ========================================================================== */
+.reviews-section {
+  position: relative;
+  padding: clamp(70px, 10vw, 130px) clamp(20px, 6vw, 88px);
+  background: radial-gradient(ellipse at bottom, rgba(94, 125, 87, 0.08), transparent 60%), rgba(20, 18, 15, 0.88);
+  border-top: 1px solid rgba(239, 232, 221, 0.08);
+}
+
+.reviews-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.reviews-inner h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-head);
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  color: #fdfaf4;
+  max-width: 20ch;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  border-radius: 20px;
+  padding: 26px 22px 20px;
+  border: 1px solid rgba(239, 232, 221, 0.14);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.review-card:hover,
+.review-card:focus-visible {
+  border-color: rgba(58, 143, 183, 0.55);
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.35);
+}
+
+.review-card-quote-icon {
+  color: var(--paradise-blue);
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.review-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--desert-sand);
+  margin-bottom: 12px;
+}
+
+.review-card-excerpt {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(239, 232, 221, 0.82);
+  flex: 1;
+}
+
+.review-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding-top: 14px;
+  border-top: 1px solid rgba(239, 232, 221, 0.1);
+}
+
+.review-card-name {
+  font-family: var(--font-head);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fdfaf4;
+}
+
+.review-card-location {
+  font-weight: 500;
+  color: rgba(239, 232, 221, 0.6);
+}
+
+.review-card-read-more {
+  font-family: var(--font-head);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paradise-blue);
+}
+
+.review-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(10, 9, 7, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.review-modal {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: min(80vh, 640px);
+  overflow-y: auto;
+  border-radius: 24px;
+  padding: clamp(30px, 5vw, 46px);
+}
+
+.review-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(239, 232, 221, 0.08);
+  border: 1px solid rgba(239, 232, 221, 0.16);
+  color: var(--text-hi);
+  cursor: pointer;
+}
+
+.review-modal-close:hover {
+  background: rgba(239, 232, 221, 0.16);
+}
+
+.review-modal-quote-icon {
+  color: var(--paradise-blue);
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.review-modal-text {
+  margin: 0 0 22px;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(239, 232, 221, 0.9);
+}
+
+.review-modal-name {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fdfaf4;
+  padding-top: 16px;
+  border-top: 1px solid rgba(239, 232, 221, 0.1);
+}
+
+.review-modal-location {
+  font-weight: 500;
+  color: rgba(239, 232, 221, 0.6);
+}
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -1197,6 +1366,10 @@ form button {
 
   .services-index-grid,
   .principles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reviews-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1272,6 +1445,10 @@ form button {
 
   .services-index-grid,
   .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid {
     grid-template-columns: 1fr;
   }
 

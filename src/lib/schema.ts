@@ -1,4 +1,5 @@
 import { site, type CityEntry, type ServiceEntry } from "./siteData";
+import type { Review } from "../content/reviews";
 
 /** Base LocalBusiness (Pool Contractor / Landscaping) — render once, sitewide. */
 export function localBusinessSchema() {
@@ -107,6 +108,25 @@ export function personSchema() {
     worksFor: { "@id": `${site.url}/#business` },
     url: `${site.url}/about`,
   };
+}
+
+/**
+ * Review schema for testimonials shown on-site. Deliberately omits
+ * aggregateRating — that requires a real, verifiable rating/count from an
+ * actual review platform (Google, Facebook, Houzz), which we don't have
+ * wired up yet. Fabricating one would violate Google's structured data
+ * guidelines. Add AggregateRating once Denise's Google Business Profile
+ * review data is available.
+ */
+export function reviewSchema(items: Review[]) {
+  return items.map((review) => ({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: { "@id": `${site.url}/#business` },
+    author: { "@type": "Person", name: review.name },
+    reviewBody: review.fullText,
+    reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+  }));
 }
 
 /** FAQPage schema — pass in [{question, answer}] once page copy includes FAQs. */

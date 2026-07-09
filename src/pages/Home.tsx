@@ -5,9 +5,11 @@ import HeroScrollVideo from "../components/HeroScrollVideo";
 import TransformationScrollVideo from "../components/TransformationScrollVideo";
 import PoolDesignScrollVideo from "../components/PoolDesignScrollVideo";
 import { Seo } from "../components/Seo";
-import { breadcrumbSchema } from "../lib/schema";
+import { ReviewsSection } from "../components/ReviewsSection";
+import { breadcrumbSchema, reviewSchema } from "../lib/schema";
 import { cities, site } from "../lib/siteData";
 import { finalCta, serviceAreasTeaser, showcaseScenes, whyUs } from "../content/home";
+import { reviews } from "../content/reviews";
 
 const media = {
   outdoorLiving: "/images/home/outdoor-living-patio.jpg",
@@ -217,7 +219,7 @@ export default function Home() {
         title={site.tagline}
         description="Little Piece of Paradise designs and builds custom pools, luxury landscaping, and outdoor living spaces for Arizona homes. Request your free design consultation."
         path="/"
-        schema={breadcrumbSchema([{ name: "Home", path: "/" }])}
+        schema={[breadcrumbSchema([{ name: "Home", path: "/" }]), ...reviewSchema(reviews)]}
       />
       <HeroScrollVideo />
       <TransformationScrollVideo />
@@ -237,6 +239,7 @@ export default function Home() {
           dark={scene.dark}
         />
       ))}
+      <ReviewsSection />
       <FinalCta />
     </main>
   );
