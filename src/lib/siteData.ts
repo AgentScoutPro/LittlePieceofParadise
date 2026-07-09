@@ -27,9 +27,19 @@ export const site = {
   },
   // TODO: fill in once verified with the client — used in LocalBusiness schema
   geo: { latitude: 33.0281, longitude: -111.3843 },
-  sameAs: [] as string[], // add Instagram / Facebook / Houzz / Nextdoor URLs when available
+  sameAs: [
+    "https://www.facebook.com/people/Little-Piece-of-Paradise/61575806166578/",
+    "https://www.instagram.com/denise.lpp/",
+    "https://nextdoor.com/pages/little-piece-of-paradise-florence-az/",
+  ] as string[],
   defaultOgImage: "/og-default.jpg", // TODO: replace with the branded 1200x630 OG image from the SEO audit
 };
+
+export const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/people/Little-Piece-of-Paradise/61575806166578/" },
+  { label: "Instagram", href: "https://www.instagram.com/denise.lpp/" },
+  { label: "Nextdoor", href: "https://nextdoor.com/pages/little-piece-of-paradise-florence-az/" },
+];
 
 export type ServiceEntry = {
   slug: string;

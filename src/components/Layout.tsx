@@ -2,7 +2,7 @@ import { Suspense, lazy, useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { localBusinessSchema } from "../lib/schema";
-import { cities, primaryNav, services, site } from "../lib/siteData";
+import { cities, primaryNav, services, site, socialLinks } from "../lib/siteData";
 import ScrollProgressBar from "./ScrollProgressBar";
 
 const AmbientBackground = lazy(() => import("./AmbientBackground"));
@@ -121,6 +121,13 @@ function SiteFooter() {
             <Link to="/contact">Contact</Link>
             <a href={site.phoneHref}>{site.phoneDisplay}</a>
             <a href={`mailto:${site.email}`}>{site.email}</a>
+            <div className="site-footer-social" aria-label="Social links">
+              {socialLinks.map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">
+                  {social.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

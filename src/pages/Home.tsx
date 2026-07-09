@@ -314,6 +314,15 @@ function ServiceAreasTeaser() {
 }
 
 function FinalCta() {
+  const [email, setEmail] = React.useState("");
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const subject = encodeURIComponent("Design Consultation Request");
+    const body = encodeURIComponent(`I'd like to request a free design consultation.\n\nMy email: ${email}`);
+    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+  }
+
   return (
     <section className="scene final-cta" id="contact" style={{ minHeight: "auto", paddingTop: "clamp(70px,10vw,140px)", paddingBottom: 0 }}>
       <Reveal className="contact-panel liquid-glass">
@@ -322,8 +331,15 @@ function FinalCta() {
           <em>{finalCta.headlineEmphasis}</em>
         </h2>
         <p>{finalCta.copy}</p>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input aria-label="Email address" placeholder="Enter your email" type="email" />
+        <form onSubmit={handleSubmit}>
+          <input
+            aria-label="Email address"
+            placeholder="Enter your email"
+            type="email"
+            required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
           <button type="submit"><span>{finalCta.ctaLabel}</span><ArrowRight size={18} /></button>
         </form>
       </Reveal>

@@ -1017,6 +1017,91 @@ form button {
   text-transform: uppercase;
 }
 
+.contact-quick-actions {
+  margin-bottom: 28px;
+}
+
+.contact-form {
+  width: 100%;
+  margin: 0;
+  padding: clamp(22px, 4vw, 34px);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  display: grid;
+  gap: 22px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form label span {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--desert-sand);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid rgba(239, 232, 221, 0.14);
+  border-radius: 14px;
+  outline: 0;
+  background: rgba(12, 12, 10, 0.46);
+  color: #fff;
+  padding: 0 16px;
+  font: inherit;
+}
+
+.contact-form select {
+  appearance: none;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding: 14px 16px;
+  line-height: 1.65;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: rgba(58, 143, 183, 0.72);
+  box-shadow: 0 0 0 4px rgba(58, 143, 183, 0.12);
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+.contact-form button {
+  justify-self: flex-start;
+}
+
+.form-note {
+  margin: 0;
+  color: rgba(239, 232, 221, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.form-note a {
+  color: var(--desert-sand);
+}
+
 /* ==========================================================================
    GLOBAL SITE FOOTER
    ========================================================================== */
@@ -1080,6 +1165,18 @@ form button {
 
 .site-footer-column a:hover {
   color: var(--desert-sand);
+}
+
+.site-footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding-top: 6px;
+}
+
+.site-footer-social a {
+  color: rgba(239, 232, 221, 0.58);
+  font-size: 0.8rem;
 }
 
 .site-footer-copy {
@@ -1599,6 +1696,10 @@ form button {
 @media (max-width: 560px) {
   .scene-content {
     padding-inline: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 
   .why-grid {
