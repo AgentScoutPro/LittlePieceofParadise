@@ -4,6 +4,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import HeroScrollVideo from "../components/HeroScrollVideo";
 import TransformationScrollVideo from "../components/TransformationScrollVideo";
 import PoolDesignScrollVideo from "../components/PoolDesignScrollVideo";
+import ParadiseAfterDarkScrollVideo from "../components/ParadiseAfterDarkScrollVideo";
 import { Seo } from "../components/Seo";
 import { ReviewsSection } from "../components/ReviewsSection";
 import { breadcrumbSchema, reviewSchema } from "../lib/schema";
@@ -15,14 +16,12 @@ const media = {
   outdoorLiving: "/images/home/outdoor-living-patio.jpg",
   family: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=2400&q=85",
   landscape: "/images/home/landscape-design-desert.jpg",
-  night: "/images/home/after-dark-pool.jpg",
 };
 
 const showcaseImages: Record<string, string> = {
   "outdoor-living": media.outdoorLiving,
   family: media.family,
   "landscape-design": media.landscape,
-  "night-mode": media.night,
 };
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -226,7 +225,7 @@ export default function Home() {
       <PoolDesignScrollVideo />
       <WhyUs />
       <ServiceAreasTeaser />
-      {showcaseScenes.filter((scene) => !["pool-design", "family"].includes(scene.id)).map((scene) => (
+      {showcaseScenes.filter((scene) => !["pool-design", "family", "night-mode"].includes(scene.id)).map((scene) => (
         <ShowcaseScene
           key={scene.id}
           id={scene.id}
@@ -239,6 +238,7 @@ export default function Home() {
           dark={scene.dark}
         />
       ))}
+      <ParadiseAfterDarkScrollVideo />
       <ReviewsSection />
       <FinalCta />
     </main>
