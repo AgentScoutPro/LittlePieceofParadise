@@ -2,7 +2,7 @@ import { Suspense, lazy, useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { localBusinessSchema } from "../lib/schema";
-import { primaryNav, site } from "../lib/siteData";
+import { cities, primaryNav, services, site } from "../lib/siteData";
 import ScrollProgressBar from "./ScrollProgressBar";
 
 const AmbientBackground = lazy(() => import("./AmbientBackground"));
@@ -85,23 +85,43 @@ function MobileNavOverlay({ open, onClose }: { open: boolean; onClose: () => voi
 function SiteFooter() {
   return (
     <footer className="site-footer-global">
-      <div className="site-footer-inner">
-        <div>
+      <div className="site-footer-shell">
+        <div className="site-footer-brand">
           <strong>{site.name}</strong>
           <p>
             {site.address.street}, {site.address.city}, {site.address.region} {site.address.postalCode}
           </p>
         </div>
-        <div className="site-footer-links">
-          <a href={site.phoneHref}>{site.phoneDisplay}</a>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        </div>
-        <div className="site-footer-nav">
-          {primaryNav.map((item) => (
-            <Link key={item.href} to={item.href}>
-              {item.label}
-            </Link>
-          ))}
+
+        <div className="site-footer-inner">
+          <div className="site-footer-column">
+            <h2>Services</h2>
+            <Link to="/services">All Services</Link>
+            {services.map((service) => (
+              <Link key={service.slug} to={`/services/${service.slug}`}>
+                {service.shortName}
+              </Link>
+            ))}
+          </div>
+
+          <div className="site-footer-column">
+            <h2>Service Areas</h2>
+            <Link to="/service-areas">All Service Areas</Link>
+            {cities.map((city) => (
+              <Link key={city.slug} to={`/${city.slug}`}>
+                {city.cityName}, {city.region}
+              </Link>
+            ))}
+          </div>
+
+          <div className="site-footer-column">
+            <h2>Company</h2>
+            <Link to="/about">About</Link>
+            <Link to="/gallery">Gallery</Link>
+            <Link to="/contact">Contact</Link>
+            <a href={site.phoneHref}>{site.phoneDisplay}</a>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
         </div>
       </div>
       <p className="site-footer-copy">&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>

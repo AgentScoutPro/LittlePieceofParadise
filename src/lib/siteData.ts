@@ -146,29 +146,30 @@ export type CityEntry = {
   slug: string;
   cityName: string;
   region: string;
+  tagline: string;
   neighbor?: string;
 };
 
 export const cities: CityEntry[] = [
-  { slug: "florence-az-pool-builder", cityName: "Florence", region: "AZ" },
-  { slug: "queen-creek-pool-builder", cityName: "Queen Creek", region: "AZ" },
-  { slug: "san-tan-valley-pool-builder", cityName: "San Tan Valley", region: "AZ" },
-  { slug: "gilbert-pool-builder", cityName: "Gilbert", region: "AZ" },
-  { slug: "chandler-pool-builder", cityName: "Chandler", region: "AZ" },
-  { slug: "mesa-pool-builder", cityName: "Mesa", region: "AZ" },
-  { slug: "scottsdale-pool-builder", cityName: "Scottsdale", region: "AZ" },
-  { slug: "fountain-hills-pool-builder", cityName: "Fountain Hills", region: "AZ" },
-  { slug: "apache-junction-pool-builder", cityName: "Apache Junction", region: "AZ" },
-  { slug: "gold-canyon-pool-builder", cityName: "Gold Canyon", region: "AZ" },
-  { slug: "casa-grande-pool-builder", cityName: "Casa Grande", region: "AZ" },
-  { slug: "paradise-valley-pool-builder", cityName: "Paradise Valley", region: "AZ" },
-  { slug: "arcadia-pool-builder", cityName: "Arcadia", region: "AZ" },
-  { slug: "north-phoenix-pool-builder", cityName: "North Phoenix", region: "AZ" },
-  { slug: "cave-creek-pool-builder", cityName: "Cave Creek", region: "AZ" },
-  { slug: "ahwatukee-pool-builder", cityName: "Ahwatukee", region: "AZ" },
-  { slug: "superstition-area-pool-builder", cityName: "Superstition Area", region: "AZ" },
-  { slug: "maricopa-pool-builder", cityName: "Maricopa", region: "AZ" },
-  { slug: "coolidge-pool-builder", cityName: "Coolidge", region: "AZ" },
+  { slug: "florence-az-pool-builder", cityName: "Florence", region: "AZ", tagline: "Larger lots, fewer HOA restrictions" },
+  { slug: "queen-creek-pool-builder", cityName: "Queen Creek", region: "AZ", tagline: "Family communities & horse properties" },
+  { slug: "san-tan-valley-pool-builder", cityName: "San Tan Valley", region: "AZ", tagline: "Mountain views, fast-growing area" },
+  { slug: "gilbert-pool-builder", cityName: "Gilbert", region: "AZ", tagline: "Established neighborhoods, HOA design standards" },
+  { slug: "chandler-pool-builder", cityName: "Chandler", region: "AZ", tagline: "Lake and golf-course lots" },
+  { slug: "mesa-pool-builder", cityName: "Mesa", region: "AZ", tagline: "Mid-century neighborhoods to new construction" },
+  { slug: "scottsdale-pool-builder", cityName: "Scottsdale", region: "AZ", tagline: "Luxury design for DC Ranch & Silverleaf" },
+  { slug: "fountain-hills-pool-builder", cityName: "Fountain Hills", region: "AZ", tagline: "Hillside lots, McDowell Mountain views" },
+  { slug: "apache-junction-pool-builder", cityName: "Apache Junction", region: "AZ", tagline: "Desert lots below the Superstitions" },
+  { slug: "gold-canyon-pool-builder", cityName: "Gold Canyon", region: "AZ", tagline: "Golf-course living near the Superstitions" },
+  { slug: "casa-grande-pool-builder", cityName: "Casa Grande", region: "AZ", tagline: "Larger lots between Phoenix and Tucson" },
+  { slug: "paradise-valley-pool-builder", cityName: "Paradise Valley", region: "AZ", tagline: "Estate-level design, the strictest standards" },
+  { slug: "arcadia-pool-builder", cityName: "Arcadia", region: "AZ", tagline: "Mature trees, flood-irrigated citrus lots" },
+  { slug: "north-phoenix-pool-builder", cityName: "North Phoenix", region: "AZ", tagline: "Desert Ridge to North Mountain foothills" },
+  { slug: "cave-creek-pool-builder", cityName: "Cave Creek", region: "AZ", tagline: "Rustic high-desert character, larger lots" },
+  { slug: "ahwatukee-pool-builder", cityName: "Ahwatukee", region: "AZ", tagline: "South Mountain foothills & golf communities" },
+  { slug: "superstition-area-pool-builder", cityName: "Superstition Area", region: "AZ", tagline: "Dramatic Superstition Mountain backdrops" },
+  { slug: "maricopa-pool-builder", cityName: "Maricopa", region: "AZ", tagline: "Fast-growing Pinal County community" },
+  { slug: "coolidge-pool-builder", cityName: "Coolidge", region: "AZ", tagline: "Quiet, established Pinal County community" },
 ];
 
 export const primaryNav = [

@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Flame, Medal, Sparkles, Sprout, Users } from "lucide-react";
+import { ArrowRight, Flame, Hammer, Home as HomeIcon, Medal, Palette, ShieldCheck, Sparkles, Sprout, Users } from "lucide-react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import HeroScrollVideo from "../components/HeroScrollVideo";
 import TransformationScrollVideo from "../components/TransformationScrollVideo";
@@ -8,7 +8,7 @@ import ParadiseAfterDarkScrollVideo from "../components/ParadiseAfterDarkScrollV
 import { Seo } from "../components/Seo";
 import { ReviewsSection } from "../components/ReviewsSection";
 import { breadcrumbSchema, reviewSchema } from "../lib/schema";
-import { cities, site } from "../lib/siteData";
+import { cities, services, site } from "../lib/siteData";
 import { finalCta, serviceAreasTeaser, showcaseScenes, whyUs } from "../content/home";
 import { reviews } from "../content/reviews";
 
@@ -76,6 +76,51 @@ function ShowcaseScene({ id, eyebrow, headlinePrefix, headlineEmphasis, copy, im
 }
 
 const whyUsIcons = [Sparkles, Medal, Sprout, Users, Flame];
+const trustBadges = [
+  { label: "Licensed, Bonded & Insured Network", icon: ShieldCheck },
+  { label: "100% Custom Design — No AI Templates", icon: Palette },
+  { label: "One Team, Concept to Completion", icon: Hammer },
+  { label: "Family-Owned & Arizona-Based", icon: HomeIcon },
+];
+
+const challenges = [
+  {
+    title: "Stuck With a Builder-Grade Backyard?",
+    body: "Most new Arizona homes hand you a flat lot of dirt and call it a yard. We turn that blank builder lot into a fully designed outdoor living space — planned in phases if that fits your budget better.",
+    cta: "See Landscape Design",
+    href: "/services/landscape-design",
+  },
+  {
+    title: "No Privacy From the Neighbors?",
+    body: "Strategic planting, hardscape, and shade structures placed to actually block sightlines into your yard — not just decorate around the edges.",
+    cta: "See Pergolas & Gazebos",
+    href: "/services/pergolas-gazebos",
+  },
+  {
+    title: "HOA Wants a Full Design Package?",
+    body: "We create the complete 2D or 3D design package most HOA design review boards ask for, not just a rough sketch — most designs are ready for review within 7 to 10 business days.",
+    cta: "See Custom Pool Design",
+    href: "/services/custom-pool-design",
+  },
+  {
+    title: "Pool Feels Dated or Underused?",
+    body: "A tired deck or an outdated shape doesn't always mean starting over. Sometimes it means redesigning the space around how your family actually uses it now.",
+    cta: "See Pool Construction",
+    href: "/services/custom-pool-construction",
+  },
+  {
+    title: "Planning a Backyard in Stages?",
+    body: "Not ready to do it all at once? We help map out a sequence so today's install sets up tomorrow's addition instead of working against it.",
+    cta: "Start With a Consultation",
+    href: "/contact",
+  },
+  {
+    title: "Tired of Cookie-Cutter Design Ideas?",
+    body: "Every design is built around your style, your family, and your yard — not pulled from a template that's already all over the internet and social media.",
+    cta: "See Our Process",
+    href: "/about",
+  },
+];
 
 function InteractiveWhyCard({ children }: { children: React.ReactNode }) {
   const [style, setStyle] = React.useState<React.CSSProperties>({});
@@ -174,6 +219,75 @@ function WhyUs() {
   );
 }
 
+function TrustBadgeStrip() {
+  return (
+    <section className="trust-strip" aria-label="Trust signals">
+      <div className="trust-strip-inner">
+        {trustBadges.map((badge) => {
+          const Icon = badge.icon;
+          return (
+            <div className="trust-strip-item" key={badge.label}>
+              <Icon size={17} aria-hidden="true" />
+              <span>{badge.label}</span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function ServicesGrid() {
+  return (
+    <section className="services-home-section" id="services">
+      <div className="section-inner">
+        <Reveal>
+          <p className="section-label">Our Services</p>
+          <h2 className="section-heading">
+            Everything Your Backyard Needs, <em>One Team</em>
+          </h2>
+        </Reveal>
+        <div className="services-home-grid">
+          {services.map((service) => (
+            <a className="service-home-card liquid-glass" href={`/services/${service.slug}`} key={service.slug}>
+              <h3>{service.shortName}</h3>
+              <p>{service.intro}</p>
+              <span>View Service <ArrowRight size={14} /></span>
+            </a>
+          ))}
+        </div>
+        <a className="section-small-link" href="/services">
+          See All Services <ArrowRight size={15} />
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function CommonChallenges() {
+  return (
+    <section className="challenges-section" id="common-backyard-challenges">
+      <div className="section-inner">
+        <Reveal>
+          <p className="section-label">Common Backyard Challenges</p>
+          <h2 className="section-heading">
+            Not Sure Where to Start? <em>Start Here.</em>
+          </h2>
+        </Reveal>
+        <div className="challenge-grid">
+          {challenges.map((challenge) => (
+            <a className="challenge-card liquid-glass" href={challenge.href} key={challenge.title}>
+              <h3>{challenge.title}</h3>
+              <p>{challenge.body}</p>
+              <span>{challenge.cta} <ArrowRight size={14} /></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ServiceAreasTeaser() {
   return (
     <section className="service-areas" id="service-areas">
@@ -181,12 +295,18 @@ function ServiceAreasTeaser() {
         <Reveal>
           <h2>{serviceAreasTeaser.headline}</h2>
         </Reveal>
-        <Reveal delay={0.1} className="city-chip-list">
+        <Reveal delay={0.1} className="service-areas-grid">
           {cities.map((city) => (
-            <a className="city-chip" href={`/${city.slug}`} key={city.slug}>
-              {city.cityName}, {city.region}
+            <a className="service-area-card liquid-glass" href={`/${city.slug}`} key={city.slug}>
+              <h3>{city.cityName}, {city.region}</h3>
+              <p>{city.tagline}</p>
             </a>
           ))}
+          <div className="service-area-card service-area-card-static liquid-glass">
+            <h3>Don&apos;t see your city?</h3>
+            <p>We serve the greater Phoenix Metro and Pinal County area — call to confirm your location.</p>
+            <a href={site.phoneHref}>{site.phoneDisplay}</a>
+          </div>
         </Reveal>
       </div>
     </section>
@@ -224,7 +344,7 @@ export default function Home() {
       <TransformationScrollVideo />
       <PoolDesignScrollVideo />
       <WhyUs />
-      <ServiceAreasTeaser />
+      <TrustBadgeStrip />
       {showcaseScenes.filter((scene) => !["pool-design", "family", "night-mode"].includes(scene.id)).map((scene) => (
         <ShowcaseScene
           key={scene.id}
@@ -239,6 +359,9 @@ export default function Home() {
         />
       ))}
       <ParadiseAfterDarkScrollVideo />
+      <ServicesGrid />
+      <CommonChallenges />
+      <ServiceAreasTeaser />
       <ReviewsSection />
       <FinalCta />
     </main>
