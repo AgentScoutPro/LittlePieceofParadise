@@ -179,3 +179,86 @@ export const primaryNav = [
   { label: "Service Areas", href: "/service-areas" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** 3 real, geographically-nearby cities per city page — used for the
+ * "Nearby Service Areas" cross-link block. Hand-curated against actual
+ * Phoenix-metro/Pinal-County geography, not arbitrary. */
+export const nearbyCities: Record<string, string[]> = {
+  "florence-az-pool-builder": ["coolidge-pool-builder", "san-tan-valley-pool-builder", "casa-grande-pool-builder"],
+  "queen-creek-pool-builder": ["san-tan-valley-pool-builder", "gilbert-pool-builder", "chandler-pool-builder"],
+  "san-tan-valley-pool-builder": ["queen-creek-pool-builder", "florence-az-pool-builder", "apache-junction-pool-builder"],
+  "gilbert-pool-builder": ["chandler-pool-builder", "mesa-pool-builder", "queen-creek-pool-builder"],
+  "chandler-pool-builder": ["gilbert-pool-builder", "mesa-pool-builder", "ahwatukee-pool-builder"],
+  "mesa-pool-builder": ["gilbert-pool-builder", "chandler-pool-builder", "apache-junction-pool-builder"],
+  "scottsdale-pool-builder": ["paradise-valley-pool-builder", "fountain-hills-pool-builder", "arcadia-pool-builder"],
+  "fountain-hills-pool-builder": ["scottsdale-pool-builder", "mesa-pool-builder", "north-phoenix-pool-builder"],
+  "apache-junction-pool-builder": ["gold-canyon-pool-builder", "superstition-area-pool-builder", "mesa-pool-builder"],
+  "gold-canyon-pool-builder": ["apache-junction-pool-builder", "superstition-area-pool-builder", "queen-creek-pool-builder"],
+  "casa-grande-pool-builder": ["coolidge-pool-builder", "maricopa-pool-builder", "florence-az-pool-builder"],
+  "paradise-valley-pool-builder": ["scottsdale-pool-builder", "arcadia-pool-builder", "north-phoenix-pool-builder"],
+  "arcadia-pool-builder": ["paradise-valley-pool-builder", "scottsdale-pool-builder", "north-phoenix-pool-builder"],
+  "north-phoenix-pool-builder": ["cave-creek-pool-builder", "scottsdale-pool-builder", "arcadia-pool-builder"],
+  "cave-creek-pool-builder": ["north-phoenix-pool-builder", "scottsdale-pool-builder", "fountain-hills-pool-builder"],
+  "ahwatukee-pool-builder": ["chandler-pool-builder", "gilbert-pool-builder", "mesa-pool-builder"],
+  "superstition-area-pool-builder": ["apache-junction-pool-builder", "gold-canyon-pool-builder", "mesa-pool-builder"],
+  "maricopa-pool-builder": ["casa-grande-pool-builder", "coolidge-pool-builder", "chandler-pool-builder"],
+  "coolidge-pool-builder": ["florence-az-pool-builder", "casa-grande-pool-builder", "maricopa-pool-builder"],
+};
+
+/** 3 featured services per city page (round-robin through the 11 services,
+ * offset by city index) — replaces the old services.slice(0, 4) which
+ * showed the same 4 services on every city page. */
+export const cityFeaturedServices: Record<string, string[]> = {
+  "florence-az-pool-builder": ["custom-pool-design", "custom-pool-construction", "landscape-design"],
+  "queen-creek-pool-builder": ["custom-pool-construction", "landscape-design", "outdoor-living-spaces"],
+  "san-tan-valley-pool-builder": ["landscape-design", "outdoor-living-spaces", "pergolas-gazebos"],
+  "gilbert-pool-builder": ["outdoor-living-spaces", "pergolas-gazebos", "outdoor-kitchens"],
+  "chandler-pool-builder": ["pergolas-gazebos", "outdoor-kitchens", "fire-features"],
+  "mesa-pool-builder": ["outdoor-kitchens", "fire-features", "artificial-turf"],
+  "scottsdale-pool-builder": ["fire-features", "artificial-turf", "pavers-hardscapes"],
+  "fountain-hills-pool-builder": ["artificial-turf", "pavers-hardscapes", "water-features"],
+  "apache-junction-pool-builder": ["pavers-hardscapes", "water-features", "landscape-lighting"],
+  "gold-canyon-pool-builder": ["water-features", "landscape-lighting", "custom-pool-design"],
+  "casa-grande-pool-builder": ["landscape-lighting", "custom-pool-design", "custom-pool-construction"],
+  "paradise-valley-pool-builder": ["custom-pool-design", "custom-pool-construction", "landscape-design"],
+  "arcadia-pool-builder": ["custom-pool-construction", "landscape-design", "outdoor-living-spaces"],
+  "north-phoenix-pool-builder": ["landscape-design", "outdoor-living-spaces", "pergolas-gazebos"],
+  "cave-creek-pool-builder": ["outdoor-living-spaces", "pergolas-gazebos", "outdoor-kitchens"],
+  "ahwatukee-pool-builder": ["pergolas-gazebos", "outdoor-kitchens", "fire-features"],
+  "superstition-area-pool-builder": ["outdoor-kitchens", "fire-features", "artificial-turf"],
+  "maricopa-pool-builder": ["fire-features", "artificial-turf", "pavers-hardscapes"],
+  "coolidge-pool-builder": ["artificial-turf", "pavers-hardscapes", "water-features"],
+};
+
+/** 4 featured cities per service page (round-robin through the 19 cities,
+ * continuous pointer — every city gets linked from 2-3 different service
+ * pages). Replaces the current zero cross-links on service pages. */
+export const serviceFeaturedCities: Record<string, string[]> = {
+  "custom-pool-design": ["florence-az-pool-builder", "queen-creek-pool-builder", "san-tan-valley-pool-builder", "gilbert-pool-builder"],
+  "custom-pool-construction": ["chandler-pool-builder", "mesa-pool-builder", "scottsdale-pool-builder", "fountain-hills-pool-builder"],
+  "landscape-design": ["apache-junction-pool-builder", "gold-canyon-pool-builder", "casa-grande-pool-builder", "paradise-valley-pool-builder"],
+  "outdoor-living-spaces": ["arcadia-pool-builder", "north-phoenix-pool-builder", "cave-creek-pool-builder", "ahwatukee-pool-builder"],
+  "pergolas-gazebos": ["superstition-area-pool-builder", "maricopa-pool-builder", "coolidge-pool-builder", "florence-az-pool-builder"],
+  "outdoor-kitchens": ["queen-creek-pool-builder", "san-tan-valley-pool-builder", "gilbert-pool-builder", "chandler-pool-builder"],
+  "fire-features": ["mesa-pool-builder", "scottsdale-pool-builder", "fountain-hills-pool-builder", "apache-junction-pool-builder"],
+  "artificial-turf": ["gold-canyon-pool-builder", "casa-grande-pool-builder", "paradise-valley-pool-builder", "arcadia-pool-builder"],
+  "pavers-hardscapes": ["north-phoenix-pool-builder", "cave-creek-pool-builder", "ahwatukee-pool-builder", "superstition-area-pool-builder"],
+  "water-features": ["maricopa-pool-builder", "coolidge-pool-builder", "florence-az-pool-builder", "queen-creek-pool-builder"],
+  "landscape-lighting": ["san-tan-valley-pool-builder", "gilbert-pool-builder", "chandler-pool-builder", "mesa-pool-builder"],
+};
+
+/** 3 complementary services per service page — real category adjacency
+ * (pool-related, landscape-related, outdoor-living-related), not rotation. */
+export const relatedServices: Record<string, string[]> = {
+  "custom-pool-design": ["custom-pool-construction", "water-features", "landscape-lighting"],
+  "custom-pool-construction": ["custom-pool-design", "pavers-hardscapes", "water-features"],
+  "landscape-design": ["landscape-lighting", "pavers-hardscapes", "artificial-turf"],
+  "outdoor-living-spaces": ["outdoor-kitchens", "pergolas-gazebos", "fire-features"],
+  "pergolas-gazebos": ["outdoor-living-spaces", "fire-features", "landscape-lighting"],
+  "outdoor-kitchens": ["outdoor-living-spaces", "fire-features", "pavers-hardscapes"],
+  "fire-features": ["outdoor-kitchens", "pergolas-gazebos", "outdoor-living-spaces"],
+  "artificial-turf": ["pavers-hardscapes", "landscape-design", "landscape-lighting"],
+  "pavers-hardscapes": ["artificial-turf", "landscape-design", "custom-pool-construction"],
+  "water-features": ["custom-pool-design", "landscape-design", "landscape-lighting"],
+  "landscape-lighting": ["landscape-design", "pavers-hardscapes", "custom-pool-design"],
+};

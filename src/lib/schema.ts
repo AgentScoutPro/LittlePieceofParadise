@@ -1,4 +1,4 @@
-import { site, type CityEntry, type ServiceEntry } from "./siteData";
+import { cities, serviceFeaturedCities, site, type CityEntry, type ServiceEntry } from "./siteData";
 import type { Review } from "../content/reviews";
 
 /** Base LocalBusiness (Pool Contractor / Landscaping) — render once, sitewide. */
@@ -63,7 +63,10 @@ export function serviceSchema(service: ServiceEntry) {
     name: service.name,
     description: service.metaDescription,
     provider: { "@id": `${site.url}/#business` },
-    areaServed: { "@type": "State", name: "Arizona" },
+    areaServed: serviceFeaturedCities[service.slug].map((slug) => {
+      const c = cities.find((city) => city.slug === slug)!;
+      return { "@type": "City", name: `${c.cityName}, ${c.region}` };
+    }),
     url: `${site.url}/services/${service.slug}`,
   };
 }

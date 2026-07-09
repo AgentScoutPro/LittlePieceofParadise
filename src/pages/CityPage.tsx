@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema, cityServiceSchema, faqSchema } from "../lib/schema";
-import { cities, services } from "../lib/siteData";
+import { cities, cityFeaturedServices, nearbyCities, services } from "../lib/siteData";
 import { cityContent } from "../content/cities";
 import NotFound from "./NotFound";
 
@@ -75,12 +75,30 @@ export default function CityPage() {
         <section aria-labelledby="services-heading">
           <h2 id="services-heading" className="content-heading">Services in {city.cityName}</h2>
           <div className="index-grid">
-            {services.slice(0, 4).map((s) => (
-              <Link className="index-card liquid-glass" to={`/services/${s.slug}`} key={s.slug}>
-                <h3>{s.name}</h3>
-                <span className="card-link">Learn more <ArrowRight size={14} /></span>
-              </Link>
-            ))}
+            {cityFeaturedServices[city.slug].map((slug) => {
+              const s = services.find((svc) => svc.slug === slug)!;
+              return (
+                <Link className="index-card liquid-glass" to={`/services/${s.slug}`} key={s.slug}>
+                  <h3>{s.name}</h3>
+                  <span className="card-link">Learn more <ArrowRight size={14} /></span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        <section aria-labelledby="nearby-heading">
+          <h2 id="nearby-heading" className="content-heading">Nearby Service Areas</h2>
+          <div className="index-grid">
+            {nearbyCities[city.slug].map((slug) => {
+              const nc = cities.find((c) => c.slug === slug)!;
+              return (
+                <Link className="index-card liquid-glass" to={`/${nc.slug}`} key={nc.slug}>
+                  <h3>{nc.cityName}, {nc.region}</h3>
+                  <span className="card-link">View service area <ArrowRight size={14} /></span>
+                </Link>
+              );
+            })}
           </div>
         </section>
 

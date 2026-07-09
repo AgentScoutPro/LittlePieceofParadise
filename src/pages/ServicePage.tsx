@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Seo } from "../components/Seo";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "../lib/schema";
-import { services } from "../lib/siteData";
+import { cities, relatedServices, serviceFeaturedCities, services } from "../lib/siteData";
 import { serviceContent } from "../content/services";
 import NotFound from "./NotFound";
 
@@ -81,6 +81,36 @@ export default function ServicePage() {
         <section aria-labelledby="why-us-heading">
           <h2 id="why-us-heading" className="content-heading">Why Choose Little Piece of Paradise</h2>
           <p className="body-copy">{content.whyChooseUs}</p>
+        </section>
+
+        <section aria-labelledby="areas-heading">
+          <h2 id="areas-heading" className="content-heading">{service.shortName} Across Arizona</h2>
+          <div className="index-grid">
+            {serviceFeaturedCities[service.slug].map((slug) => {
+              const c = cities.find((city) => city.slug === slug)!;
+              return (
+                <Link className="index-card liquid-glass" to={`/${c.slug}`} key={c.slug}>
+                  <h3>{c.cityName}, {c.region}</h3>
+                  <span className="card-link">View service area <ArrowRight size={14} /></span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        <section aria-labelledby="related-heading">
+          <h2 id="related-heading" className="content-heading">Related Services</h2>
+          <div className="index-grid">
+            {relatedServices[service.slug].map((slug) => {
+              const s = services.find((svc) => svc.slug === slug)!;
+              return (
+                <Link className="index-card liquid-glass" to={`/services/${s.slug}`} key={s.slug}>
+                  <h3>{s.name}</h3>
+                  <span className="card-link">Learn more <ArrowRight size={14} /></span>
+                </Link>
+              );
+            })}
+          </div>
         </section>
 
         <section aria-labelledby="faq-heading">
