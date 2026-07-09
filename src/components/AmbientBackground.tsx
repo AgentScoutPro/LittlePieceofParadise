@@ -98,11 +98,11 @@ export default function AmbientBackground() {
 
     let rafId: number;
     let running = true;
-    const clock = new THREE.Clock();
+    const startTime = performance.now();
 
     function animate() {
       if (!running) return;
-      material.uniforms.uTime.value = clock.getElapsedTime();
+      material.uniforms.uTime.value = (performance.now() - startTime) / 1000;
       renderer.render(scene, camera);
       rafId = requestAnimationFrame(animate);
     }
