@@ -61,7 +61,7 @@ function ScrubbedPoolDesign() {
           poster={POSTER_UNDERWATER}
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           style={{ position: "absolute", inset: 0, objectFit: "cover" }}
         />
         <div className="scene-scrim scrim-standard" />

@@ -41,7 +41,7 @@ export function useScrollScrubbedVideo(progress: MotionValue<number>) {
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
-    video.preload = "auto";
+    video.preload = "metadata";
     video.setAttribute("playsinline", "");
     video.setAttribute("webkit-playsinline", "");
 
@@ -84,13 +84,6 @@ export function useScrollScrubbedVideo(progress: MotionValue<number>) {
     }
 
     if (video.readyState >= 1) onLoaded();
-
-    const primePlayback = video.play();
-    if (primePlayback) {
-      primePlayback.then(() => video.pause()).catch(() => {
-        // Autoplay priming is a best-effort mobile decoder hint, not required.
-      });
-    }
 
     return () => {
       video.removeEventListener("loadedmetadata", onLoaded);

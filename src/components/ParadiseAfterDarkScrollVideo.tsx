@@ -54,7 +54,7 @@ function ScrubbedParadiseAfterDark() {
           poster={POSTER_START}
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
           style={{ position: "absolute", inset: 0, objectFit: "cover" }}
         />

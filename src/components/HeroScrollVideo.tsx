@@ -57,7 +57,7 @@ function ScrubbedHero() {
           poster={POSTER_BLUEPRINT}
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           style={{ position: "absolute", inset: 0, objectFit: "cover" }}
         />
         <div className="scene-scrim scrim-standard" />
