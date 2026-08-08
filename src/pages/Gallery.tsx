@@ -95,14 +95,16 @@ export default function Gallery() {
           <div className="gallery-grid">
             {visibleImages.map((image, index) => (
               <figure className="gallery-card liquid-glass" key={image.id}>
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  loading={index < 8 ? "eager" : "lazy"}
-                  decoding="async"
-                  width={image.width}
-                  height={image.height}
-                />
+                <div className="gallery-card-media">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading={index < 8 ? "eager" : "lazy"}
+                    decoding="async"
+                    width={image.width}
+                    height={image.height}
+                  />
+                </div>
                 <figcaption>
                   <strong>{image.title}</strong>
                   <span>{galleryCategories.find((category) => category.id === image.category)?.label}</span>
